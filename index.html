@@ -6,14 +6,26 @@
 <title>Cedar Cliff Colts — Pittsburgh 2026</title>
 <style>
   :root {
-    --navy: #0c1f4d;
-    --navy-dark: #081636;
-    --baby-blue: #8fc6ee;
-    --baby-blue-soft: #eaf5fd;
-    --gold: #d4a017;
-    --grey: #e7e8ea;
-    --grey-dark: #8a8f98;
-    --white: #ffffff;
+    /* Deep navy ground + raised surfaces, no pure black. */
+    --navy: oklch(20% 0.05 258);
+    --navy-dark: oklch(12% 0.045 258);
+    --navy-raised: oklch(27% 0.05 258);
+    --navy-line: oklch(80% 0.01 258 / 0.16);
+
+    /* Gold — primary accent, unchanged role from the original palette. */
+    --gold: oklch(80% 0.16 75);
+    --gold-deep: oklch(60% 0.13 72);
+
+    /* Baby blue — secondary accent / free-time and links. */
+    --baby-blue: oklch(82% 0.07 230);
+    --baby-blue-deep: oklch(60% 0.09 230);
+    --baby-blue-wash: oklch(82% 0.07 230 / 0.1);
+
+    /* Light grey text ramp, faint navy tint instead of fully neutral. */
+    --white: oklch(95% 0.004 258);
+    --grey: oklch(88% 0.006 258);
+    --grey-dark: oklch(64% 0.01 258);
+
     --radius: 10px;
   }
 
@@ -22,8 +34,8 @@
   body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: var(--grey);
-    color: var(--navy);
+    background: var(--navy);
+    color: var(--grey);
     -webkit-font-smoothing: antialiased;
   }
 
@@ -31,10 +43,11 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    background: var(--navy);
+    background: var(--navy-dark);
     color: var(--white);
     padding: 14px 16px 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 8px oklch(0% 0 0 / 0.4);
+    border-bottom: 1px solid var(--navy-line);
   }
 
   .header-row {
@@ -66,7 +79,7 @@
 
   .hotel-info {
     font-size: 0.72rem;
-    color: #cfd8e8;
+    color: var(--grey);
     margin-top: 8px;
     line-height: 1.4;
   }
@@ -85,7 +98,7 @@
     flex: 1;
     background: none;
     border: none;
-    color: #9aa7c2;
+    color: var(--grey-dark);
     font-size: 0.85rem;
     font-weight: 700;
     padding: 12px 4px;
@@ -121,7 +134,7 @@
     font-weight: 700;
     font-size: 0.95rem;
     margin-bottom: 14px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    box-shadow: 0 2px 6px oklch(0% 0 0 / 0.3);
     display: flex;
     align-items: center;
     gap: 8px;
@@ -131,26 +144,26 @@
     font-size: 1.05rem;
     font-weight: 700;
     margin: 0 0 10px;
-    color: var(--navy);
+    color: var(--white);
   }
 
   .schedule { display: flex; flex-direction: column; gap: 8px; }
 
+  /* Rows: full hairline border + background tint, no side-stripe accent. */
   .row {
-    background: var(--white);
+    background: var(--navy-raised);
     border-radius: var(--radius);
     padding: 10px 12px;
-    border-left: 5px solid var(--grey-dark);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    border: 1px solid var(--navy-line);
   }
 
-  .row.game { border-left-color: var(--gold); background: #fdf6e6; }
-  .row.pirates { border-left-color: var(--gold); background: var(--navy); color: var(--white); }
-  .row.pirates .ev-notes { color: #d7deea; }
+  .row.game { border-color: var(--gold-deep); background: oklch(80% 0.16 75 / 0.1); }
+  .row.pirates { border-color: var(--gold); background: var(--navy-dark); color: var(--white); }
+  .row.pirates .ev-notes { color: var(--grey); }
   .row.pirates .ev-who { color: var(--gold); }
   .row.pirates .ev-notes a { color: var(--baby-blue); }
-  .row.free { border-left-color: var(--baby-blue); background: var(--baby-blue-soft); }
-  .row.travel { border-left-color: var(--grey-dark); background: #f1f1f2; }
+  .row.free { border-color: var(--baby-blue-deep); background: var(--baby-blue-wash); }
+  .row.travel { border-color: var(--navy-line); background: var(--navy-raised); }
 
   .travel-meta {
     display: flex;
@@ -158,13 +171,13 @@
     gap: 10px;
     margin-top: 4px;
     font-size: 0.78rem;
-    color: #444;
+    color: var(--grey);
     font-weight: 600;
   }
   .travel-meta span { white-space: nowrap; }
   .travel-note {
     font-size: 0.76rem;
-    color: #6a6f78;
+    color: var(--grey-dark);
     margin-top: 3px;
     font-style: italic;
   }
@@ -177,16 +190,16 @@
     flex-wrap: wrap;
   }
 
-  .ev-time { font-weight: 700; font-size: 0.78rem; white-space: nowrap; }
+  .ev-time { font-weight: 700; font-size: 0.78rem; white-space: nowrap; color: var(--white); }
   .ev-who { font-size: 0.72rem; font-weight: 600; color: var(--grey-dark); text-align: right; }
-  .ev-title { font-weight: 700; font-size: 0.95rem; margin: 3px 0 2px; }
-  .ev-notes { font-size: 0.82rem; color: #444; line-height: 1.45; }
-  .ev-notes a { color: #1a5fb4; text-decoration: underline; word-break: break-word; }
+  .ev-title { font-weight: 700; font-size: 0.95rem; margin: 3px 0 2px; color: var(--white); }
+  .ev-notes { font-size: 0.82rem; color: var(--grey); line-height: 1.45; }
+  .ev-notes a { color: var(--baby-blue); text-decoration: underline; word-break: break-word; }
   .row.pirates .ev-title { color: var(--white); }
 
   .lets-eat {
     display: inline-block;
-    background: var(--navy);
+    background: var(--navy-dark);
     color: var(--gold);
     font-size: 0.68rem;
     font-weight: 700;
@@ -200,22 +213,22 @@
   .ev-meta {
     font-size: 0.78rem;
     font-weight: 700;
-    color: #2a4a86;
+    color: var(--baby-blue);
     margin: 4px 0 2px;
   }
 
   .uniform-line {
     font-size: 0.78rem;
     font-weight: 700;
-    color: #2a4a86;
+    color: var(--baby-blue);
     margin-top: 6px;
   }
   .row.pirates .uniform-line { color: var(--baby-blue); }
 
   .alert-box {
-    background: #fde2c8;
-    color: #6e3a00;
-    border: 2px solid #c97a1f;
+    background: oklch(80% 0.16 75 / 0.14);
+    color: var(--gold);
+    border: 1px solid var(--gold-deep);
     border-radius: 8px;
     padding: 8px 10px;
     font-size: 0.8rem;
@@ -229,20 +242,20 @@
     font-size: 0.78rem;
     text-transform: uppercase;
     letter-spacing: 0.4px;
-    color: #2a4a86;
+    color: var(--baby-blue);
     margin: 14px 0 6px;
   }
 
   .free-block-sub {
     font-size: 0.75rem;
-    color: #5a6478;
+    color: var(--grey-dark);
     margin: -4px 0 8px;
     font-weight: 600;
   }
 
   .row.best {
-    border-left-color: var(--gold);
-    box-shadow: 0 0 0 2px rgba(212,160,23,0.35), 0 1px 3px rgba(0,0,0,0.08);
+    border-color: var(--gold);
+    box-shadow: 0 0 0 1px var(--gold);
   }
 
   .best-badge {
@@ -258,28 +271,46 @@
   }
 
   details.more-options {
-    margin-top: 6px;
+    margin-top: 10px;
   }
 
   details.more-options summary {
     cursor: pointer;
     font-weight: 700;
-    font-size: 0.78rem;
-    color: #2a4a86;
-    padding: 8px 2px;
+    font-size: 0.9rem;
+    color: var(--white);
+    background: var(--baby-blue-wash);
+    border: 1px solid var(--baby-blue-deep);
+    border-radius: var(--radius);
+    padding: 12px 14px;
     list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    transition: background-color 0.15s, border-color 0.15s;
+  }
+
+  details.more-options summary:active,
+  details.more-options[open] summary {
+    background: oklch(82% 0.07 230 / 0.18);
+    border-color: var(--baby-blue);
   }
 
   details.more-options summary::-webkit-details-marker { display: none; }
   details.more-options summary::marker { content: ""; }
-  details.more-options summary::before {
-    content: "▸ ";
+  details.more-options summary::after {
+    content: "▾";
+    color: var(--baby-blue);
+    font-size: 0.8rem;
+    transition: transform 0.15s;
+    flex-shrink: 0;
   }
-  details.more-options[open] summary::before {
-    content: "▾ ";
+  details.more-options[open] summary::after {
+    transform: rotate(180deg);
   }
 
-  details.more-options .schedule { margin-top: 4px; }
+  details.more-options .schedule { margin-top: 10px; }
 
   details.eat-details { margin-top: 6px; }
   details.eat-details summary.lets-eat { list-style: none; cursor: pointer; }
@@ -289,37 +320,39 @@
     margin-top: 8px;
     font-size: 0.82rem;
     line-height: 1.5;
-    color: #333;
-    background: rgba(255,255,255,0.6);
+    color: var(--grey);
+    background: oklch(0% 0 0 / 0.18);
     border-radius: 8px;
     padding: 8px 10px;
   }
-  .row.pirates details.eat-details .eat-body { background: rgba(255,255,255,0.1); color: #e6ebf5; }
+  .row.pirates details.eat-details .eat-body { background: oklch(95% 0.004 258 / 0.08); color: var(--grey); }
   .row.pirates details.eat-details .eat-body a { color: var(--baby-blue); }
-  .eat-body a { color: #1a5fb4; text-decoration: underline; }
-  .todo { color: #9a4d10; font-style: italic; }
-  .row.pirates details.eat-details .eat-body .todo { color: #f0c878; }
+  .eat-body a { color: var(--baby-blue); text-decoration: underline; }
+  .todo { color: var(--gold); font-style: italic; }
+  .row.pirates details.eat-details .eat-body .todo { color: var(--gold); }
 
   .key-info {
-    background: var(--white);
+    background: var(--navy-raised);
     border-radius: var(--radius);
     padding: 12px 14px;
     margin-top: 18px;
     font-size: 0.8rem;
     line-height: 1.6;
-    border: 1px solid #d8dbe0;
+    border: 1px solid var(--navy-line);
+    color: var(--grey);
   }
 
-  .key-info h3 { margin: 0 0 6px; font-size: 0.85rem; color: var(--navy); }
-  .key-info a { color: #1a5fb4; text-decoration: underline; word-break: break-word; }
+  .key-info h3 { margin: 0 0 6px; font-size: 0.85rem; color: var(--white); }
+  .key-info a { color: var(--baby-blue); text-decoration: underline; word-break: break-word; }
 
   footer.site-footer {
-    background: var(--navy);
-    color: #cfd8e8;
+    background: var(--navy-dark);
+    color: var(--grey);
     padding: 18px 16px 26px;
     font-size: 0.78rem;
     line-height: 1.7;
     text-align: center;
+    border-top: 1px solid var(--navy-line);
   }
 
   footer.site-footer .gold { color: var(--gold); font-weight: 700; }
@@ -340,7 +373,7 @@
     align-items: center;
     justify-content: center;
     gap: 2px;
-    background: rgba(255,255,255,0.08);
+    background: var(--navy-raised);
     color: var(--white);
     text-decoration: none;
     border-radius: 8px;
@@ -349,17 +382,18 @@
     font-weight: 700;
     text-align: center;
     min-height: 52px;
-    border: 1px solid rgba(255,255,255,0.12);
+    border: 1px solid var(--navy-line);
   }
   .quick-actions a .qa-icon { font-size: 1.15rem; }
   .quick-actions a:active { background: var(--gold); color: var(--navy-dark); }
 
-  /* Up Next sticky card */
+  /* Up Next sticky card. Solid gold, not a gradient — a state highlight
+     should read as deliberate, not decorative. */
   .up-next {
-    background: linear-gradient(135deg, var(--gold), #e8b934);
+    background: var(--gold);
     color: var(--navy-dark);
     padding: 10px 14px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+    box-shadow: 0 3px 8px oklch(0% 0 0 / 0.35);
   }
   .up-next-label {
     font-size: 0.65rem;
@@ -398,25 +432,27 @@
     text-decoration: none;
     cursor: pointer;
   }
-  .up-next.late { background: linear-gradient(135deg, #d44, #a31c1c); color: var(--white); }
+  .up-next.late { background: oklch(58% 0.16 25); color: var(--white); }
   .up-next.late .up-next-actions a, .up-next.late .up-next-actions button { background: var(--navy-dark); }
 
 
   /* Weather card */
   .weather-card {
-    background: var(--white);
+    background: var(--navy-raised);
     border-radius: var(--radius);
     padding: 14px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    box-shadow: 0 1px 3px oklch(0% 0 0 / 0.25);
     margin-bottom: 12px;
+    border: 1px solid var(--navy-line);
+    color: var(--grey);
   }
   .weather-now {
     display: flex;
     align-items: center;
     gap: 14px;
   }
-  .weather-now .wtemp { font-size: 2.2rem; font-weight: 800; }
-  .weather-now .wdesc { font-size: 0.85rem; color: #555; line-height: 1.4; }
+  .weather-now .wtemp { font-size: 2.2rem; font-weight: 800; color: var(--white); }
+  .weather-now .wdesc { font-size: 0.85rem; color: var(--grey); line-height: 1.4; }
   .weather-impact {
     margin-top: 10px;
     font-size: 0.8rem;
@@ -424,9 +460,9 @@
     padding: 8px 10px;
     border-radius: 8px;
   }
-  .weather-impact.good { background: #d7f0db; color: #1f6b32; }
-  .weather-impact.watch { background: #fef6d8; color: #8a6b06; }
-  .weather-impact.bad { background: #fbdada; color: #a31c1c; }
+  .weather-impact.good { background: oklch(55% 0.15 145 / 0.18); color: oklch(78% 0.13 145); }
+  .weather-impact.watch { background: oklch(80% 0.16 75 / 0.16); color: var(--gold); }
+  .weather-impact.bad { background: oklch(58% 0.16 25 / 0.2); color: oklch(78% 0.13 25); }
   .weather-days {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -434,26 +470,29 @@
     margin-top: 12px;
   }
   .weather-day {
-    background: var(--baby-blue-soft);
+    background: var(--baby-blue-wash);
+    border: 1px solid var(--navy-line);
     border-radius: 8px;
     padding: 8px 4px;
     text-align: center;
     font-size: 0.7rem;
     font-weight: 700;
+    color: var(--white);
   }
   .weather-day .wd-temp { font-size: 0.9rem; margin-top: 2px; }
-  .weather-day .wd-rain { color: #2a4a86; margin-top: 2px; }
+  .weather-day .wd-rain { color: var(--baby-blue); margin-top: 2px; }
   .weather-radar-link {
     display: block;
     text-align: center;
     margin-top: 12px;
-    background: var(--navy);
+    background: var(--navy-dark);
     color: var(--white);
     text-decoration: none;
     border-radius: 8px;
     padding: 10px;
     font-weight: 700;
     font-size: 0.85rem;
+    border: 1px solid var(--navy-line);
   }
   .weather-status { font-size: 0.78rem; color: var(--grey-dark); }
 
@@ -462,9 +501,9 @@
     margin-top: 6px;
     font-size: 0.7rem;
     font-weight: 700;
-    color: #1a5fb4;
+    color: var(--baby-blue);
     background: none;
-    border: 1px solid #1a5fb4;
+    border: 1px solid var(--baby-blue-deep);
     border-radius: 20px;
     padding: 3px 10px;
     cursor: pointer;
