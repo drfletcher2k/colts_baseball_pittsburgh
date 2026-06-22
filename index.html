@@ -366,7 +366,6 @@
     background: var(--navy-dark);
     padding: 8px 8px 10px;
   }
-  .quick-actions a.qa-wide { grid-column: span 2; }
   .quick-actions a {
     display: flex;
     flex-direction: column;
@@ -526,8 +525,9 @@
 </header>
 
 <div class="quick-actions">
-  <a class="qa-wide" href="https://go.playacevents.com/events/16th-annual-cap-classic-pittsburgh-2-pittsburgh-pa-06-25-2026/15u" target="_blank" rel="noopener"><span class="qa-icon">🏆</span>Tournament Hub</a>
+  <a href="https://go.playacevents.com/events/16th-annual-cap-classic-pittsburgh-2-pittsburgh-pa-06-25-2026/15u" target="_blank" rel="noopener"><span class="qa-icon">🏆</span>Tournament Hub</a>
   <a id="qa-weather" href="#weather" data-day="weather"><span class="qa-icon">☀️</span>Weather</a>
+  <a id="qa-walkable" href="#walkable" data-day="walkable"><span class="qa-icon">🚶</span>What's Walkable</a>
 </div>
 
 <div id="up-next" class="up-next" hidden>
@@ -1026,6 +1026,68 @@
     </div>
   </section>
 
+  <!-- WALKABLE -->
+  <section id="walkable" class="day">
+    <h2 class="day-heading">What's Walkable — Near Hotel Indigo Oakland</h2>
+    <div class="free-block-sub">Roughly a 1-mile radius of 329 Technology Dr. Note: the hotel sits down by the river — Oakland proper (Forbes/Craig St area) is up a steep hill. Ask the front desk about the hotel shuttle if you'd rather not walk it both ways.</div>
+
+    <div class="free-block-title">🍻 Bars &amp; Restaurants</div>
+    <div class="schedule">
+      <div class="row free">
+        <div class="ev-title">The Porch at Schenley</div>
+        <div class="ev-meta">🚶 ~15–20 min walk (uphill)</div>
+        <div class="ev-notes">221 Schenley Dr · Big patio, handles large groups well, parent-friendly sit-down vibe overlooking Schenley Plaza.
+          <a href="https://maps.google.com/?q=The+Porch+at+Schenley+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
+      </div>
+      <div class="row free">
+        <div class="ev-title">Fuel and Fuddle</div>
+        <div class="ev-meta">🚶 ~20 min walk (uphill)</div>
+        <div class="ev-notes">212 Oakland Ave · Casual pub, huge menu, popular with Pitt families — good for a low-key group dinner.
+          <a href="https://maps.google.com/?q=Fuel+and+Fuddle+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
+      </div>
+      <div class="row free">
+        <div class="ev-title">The Original Hot Dog Shop ("The O")</div>
+        <div class="ev-meta">🚶 ~20 min walk (uphill)</div>
+        <div class="ev-notes">3901 Forbes Ave · Pitt institution, cheap and fast — hot dogs, fries, pizza. Good quick bite, no reservation needed.
+          <a href="https://maps.google.com/?q=The+Original+Hot+Dog+Shop+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
+      </div>
+      <div class="row free">
+        <div class="ev-title">Hemingway's Cafe</div>
+        <div class="ev-meta">🚶 ~20 min walk (uphill)</div>
+        <div class="ev-notes">3911 Forbes Ave · Sports-bar feel, TVs everywhere, solid pub food — easy fit if the group wants to catch other games while eating.
+          <a href="https://maps.google.com/?q=Hemingway%27s+Cafe+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
+      </div>
+    </div>
+
+    <div class="free-block-title">🎯 Activities &amp; Sights</div>
+    <div class="schedule">
+      <div class="row free">
+        <div class="ev-title">Schenley Plaza lawn</div>
+        <div class="ev-meta">🚶 ~15 min walk (uphill)</div>
+        <div class="ev-notes">Open lawn, food trucks, carousel — easy spot to decompress between games.
+          <a href="https://maps.google.com/?q=Schenley+Plaza+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
+      </div>
+      <div class="row free">
+        <div class="ev-title">Schenley Park</div>
+        <div class="ev-meta">🚶 ~15–20 min walk (uphill)</div>
+        <div class="ev-notes">Trails, open fields — a free way to stretch the legs without a drive.
+          <a href="https://maps.google.com/?q=Schenley+Park+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
+      </div>
+      <div class="row free">
+        <div class="ev-title">Cathedral of Learning &amp; Nationality Rooms</div>
+        <div class="ev-meta">🚶 ~20 min walk (uphill)</div>
+        <div class="ev-notes">4200 Fifth Ave · Iconic Pitt landmark, self-guided/guided Nationality Rooms tours for a small fee.
+          <a href="https://www.nationalityrooms.pitt.edu/tours" target="_blank" rel="noopener">Nationality Rooms info</a> ·
+          <a href="https://maps.google.com/?q=Cathedral+of+Learning+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
+      </div>
+      <div class="row free">
+        <div class="ev-title">Carnegie Museum of Natural History &amp; Art</div>
+        <div class="ev-meta">🚶 ~20 min walk (uphill)</div>
+        <div class="ev-notes">4400 Forbes Ave · Dinosaurs, indoor, good if weather turns.
+          <a href="https://maps.google.com/?q=Carnegie+Museum+of+Natural+History+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
+      </div>
+    </div>
+  </section>
 
 </main>
 
@@ -1057,6 +1119,11 @@
   document.getElementById('qa-weather').addEventListener('click', (e) => {
     e.preventDefault();
     activateDay('weather');
+  });
+
+  document.getElementById('qa-walkable').addEventListener('click', (e) => {
+    e.preventDefault();
+    activateDay('walkable');
   });
 
   // ---------- Up Next ----------
