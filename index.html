@@ -386,54 +386,6 @@
   .quick-actions a .qa-icon { font-size: 1.15rem; }
   .quick-actions a:active { background: var(--gold); color: var(--navy-dark); }
 
-  /* Up Next sticky card. Solid gold, not a gradient — a state highlight
-     should read as deliberate, not decorative. */
-  .up-next {
-    background: var(--gold);
-    color: var(--navy-dark);
-    padding: 10px 14px;
-    box-shadow: 0 3px 8px oklch(0% 0 0 / 0.35);
-  }
-  .up-next-label {
-    font-size: 0.65rem;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    opacity: 0.75;
-  }
-  .up-next-title {
-    font-size: 1rem;
-    font-weight: 800;
-    margin: 2px 0 3px;
-  }
-  .up-next-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    font-size: 0.78rem;
-    font-weight: 700;
-  }
-  .up-next-actions {
-    display: flex;
-    gap: 8px;
-    margin-top: 8px;
-  }
-  .up-next-actions a, .up-next-actions button {
-    flex: 1;
-    background: var(--navy-dark);
-    color: var(--white);
-    border: none;
-    border-radius: 8px;
-    padding: 9px 6px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  .up-next.late { background: oklch(58% 0.16 25); color: var(--white); }
-  .up-next.late .up-next-actions a, .up-next.late .up-next-actions button { background: var(--navy-dark); }
-
 
   /* Weather card */
   .weather-card {
@@ -530,12 +482,6 @@
   <a id="qa-walkable" href="#walkable" data-day="walkable"><span class="qa-icon">🚶</span>What's Walkable</a>
 </div>
 
-<div id="up-next" class="up-next" hidden>
-  <div class="up-next-label">Up Next</div>
-  <div class="up-next-title" id="up-next-title">—</div>
-  <div class="up-next-meta" id="up-next-meta"></div>
-  <div class="up-next-actions" id="up-next-actions"></div>
-</div>
 
 <nav class="tabs">
   <button class="tab-btn active" data-day="thu">Thu</button>
@@ -548,7 +494,7 @@
 
   <!-- THURSDAY -->
   <section id="thu" class="day active">
-    <div class="leave-by">⏰ Leave by ~8:30 AM from Camp Hill — arrive ~11:30 AM (1 hr before first pitch)</div>
+    <div class="leave-by">⏰ Today's Game Info — Drive from Camp Hill is ~3 hr 20 min. Plan to arrive by ~11:20 AM (1 hr 10 min before first pitch, includes a 10-min buffer) — back-time your own departure from there.</div>
     <h2 class="day-heading">Thursday, June 25</h2>
     <div class="schedule">
 
@@ -561,7 +507,7 @@
       <div class="row travel">
         <div class="row-top"><span class="ev-time">~11:30 AM</span><span class="ev-who">Arrive</span></div>
         <div class="ev-title">🚗 Arrive Eden Christian Academy</div>
-        <div class="travel-note">At the field 1 hour before first pitch.</div>
+        <div class="travel-note">At the field 1 hr 10 min before first pitch (includes a 10-min buffer).</div>
       </div>
 
       <div class="row game">
@@ -572,12 +518,6 @@
           <a href="https://maps.google.com/?q=Eden+Christian+Academy+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
         <div class="uniform-line">👕 Uniform: Grey jerseys, white pants, "COLTS" hat</div>
         <button class="cal-btn" data-ics-title="Colts vs Bradford Tigers" data-ics-start="2026-06-25T12:30:00" data-ics-end="2026-06-25T14:30:00" data-ics-loc="Eden Christian Academy BB, 206 Siebert Rd, Pittsburgh PA 15237">+ Add to Calendar</button>
-        <details class="eat-details">
-          <summary class="lets-eat">Food Near Eden Christian Academy 🍽️</summary>
-          <div class="eat-body">
-            Quick option near the field on the way out, or hold off and eat once you're back in Oakland (see evening options below) — Oakland has more sit-down choices.
-          </div>
-        </details>
       </div>
 
       <div class="row travel">
@@ -637,7 +577,7 @@
 
   <!-- FRIDAY -->
   <section id="fri" class="day">
-    <div class="leave-by">⏰ Leave by ~1:25 PM from hotel — arrive ~1:45 PM (1 hr before first pitch)</div>
+    <div class="leave-by">⏰ Today's Game Info — Leave by ~1:15 PM from hotel — arrive ~1:35 PM (1 hr 10 min before first pitch, includes a 10-min buffer)</div>
     <h2 class="day-heading">Friday, June 26</h2>
     <div class="schedule">
 
@@ -709,7 +649,7 @@
       <div class="row travel">
         <div class="row-top"><span class="ev-time">~1:45 PM</span><span class="ev-who">Arrive</span></div>
         <div class="ev-title">🚗 Arrive Woodland Hills</div>
-        <div class="travel-note">At the field 1 hour before first pitch.</div>
+        <div class="travel-note">At the field 1 hr 10 min before first pitch (includes a 10-min buffer).</div>
       </div>
 
       <div class="row game">
@@ -720,12 +660,6 @@
           <a href="https://maps.google.com/?q=Woodland+Hills+High+School+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
         <div class="uniform-line">👕 Uniform: TBD</div>
         <button class="cal-btn" data-ics-title="Colts vs Ohio Valley Rookies Greleski" data-ics-start="2026-06-26T14:45:00" data-ics-end="2026-06-26T16:45:00" data-ics-loc="Woodland Hills BB, 2550 Greensburg Pike, Pittsburgh PA 15221">+ Add to Calendar</button>
-        <details class="eat-details">
-          <summary class="lets-eat">Food Near Woodland Hills 🍽️</summary>
-          <div class="eat-body">
-            Save the appetite for back in Oakland or the Strip District tonight (see evening options below) — not much sit-down food immediately around Woodland Hills.
-          </div>
-        </details>
       </div>
 
       <div class="row travel">
@@ -780,7 +714,7 @@
 
   <!-- SATURDAY -->
   <section id="sat" class="day">
-    <div class="leave-by">⏰ Leave by ~6:25 AM from hotel — arrive ~7:00 AM (1 hr before first pitch) for the early 8 AM game at Plum</div>
+    <div class="leave-by">⏰ Today's Game Info — Leave by ~6:15 AM from hotel — arrive ~6:50 AM (1 hr 10 min before first pitch, includes a 10-min buffer) for the early 8 AM game at Plum</div>
     <h2 class="day-heading">Saturday, June 27</h2>
     <div class="schedule">
 
@@ -794,7 +728,7 @@
       <div class="row travel">
         <div class="row-top"><span class="ev-time">~7:00 AM</span><span class="ev-who">Arrive</span></div>
         <div class="ev-title">🚗 Arrive Plum HS Baseball Field</div>
-        <div class="travel-note">At the field 1 hour before first pitch.</div>
+        <div class="travel-note">At the field 1 hr 10 min before first pitch (includes a 10-min buffer).</div>
       </div>
 
       <div class="row game">
@@ -805,12 +739,6 @@
           <a href="https://maps.google.com/?q=Plum+High+School+Baseball+Field" target="_blank" rel="noopener">Map</a></div>
         <div class="uniform-line">👕 Uniform: TBD</div>
         <button class="cal-btn" data-ics-title="Colts vs Cincinnati Riverbats" data-ics-start="2026-06-27T08:00:00" data-ics-end="2026-06-27T10:00:00" data-ics-loc="Plum HS Baseball Field, 900 Elicker Rd, Plum PA 15239">+ Add to Calendar</button>
-        <details class="eat-details">
-          <summary class="lets-eat">Breakfast Near Plum 🍽️</summary>
-          <div class="eat-body">
-            Early game — grab breakfast on the way out or right after.
-          </div>
-        </details>
       </div>
 
       <div class="row travel">
@@ -917,7 +845,7 @@
 
   <!-- SUNDAY -->
   <section id="sun" class="day">
-    <div class="leave-by">⏰ Schedule TBD — depends on how many games we play. Depart for Camp Hill (~3 hrs / ~195 mi est.) when done.</div>
+    <div class="leave-by">⏰ Today's Game Info — Schedule TBD, depends on how many games we play. Be at the field 1 hr 10 min before each first pitch (includes a 10-min buffer). Depart for Camp Hill (~3 hrs / ~195 mi est.) when done.</div>
     <h2 class="day-heading">Sunday, June 28 — TBD (Playoffs)</h2>
     <div class="schedule">
 
@@ -925,14 +853,8 @@
         <div class="row-top"><span class="ev-time">TBD</span><span class="ev-who">Playoffs</span></div>
         <div class="ev-title">⚾ Tournament playoff game(s) — could be one game or several</div>
         <div class="ev-notes"><a href="https://go.playacevents.com/events/16th-annual-cap-classic-pittsburgh-2-pittsburgh-pa-06-25-2026/15u" target="_blank" rel="noopener">Tournament link</a></div>
-        <div class="travel-note">At the field 1 hour before each first pitch — check the tournament posting between games for the next time/location.</div>
+        <div class="travel-note">At the field 1 hr 10 min before each first pitch (includes a 10-min buffer) — check the tournament posting between games for the next time/location.</div>
         <div class="uniform-line">👕 Uniform: TBD</div>
-        <details class="eat-details">
-          <summary class="lets-eat">Quick Meal Options 🍽️</summary>
-          <div class="eat-body">
-            Keep it quick between games — same idea as Saturday, grab something near the field.
-          </div>
-        </details>
       </div>
 
       <div class="free-block-title">Between games / if done early</div>
@@ -1125,81 +1047,6 @@
     e.preventDefault();
     activateDay('walkable');
   });
-
-  // ---------- Up Next ----------
-  // Key schedule moments, in order. Times are local (America/New_York).
-  const EVENTS = [
-    { day: 'thu', start: '2026-06-25T08:30:00', title: '🚗 Depart Camp Hill', sub: 'For Eden Christian Academy', map: 'https://maps.google.com/?q=Eden+Christian+Academy+Pittsburgh' },
-    { day: 'thu', start: '2026-06-25T12:30:00', title: '⚾ Colts vs Bradford Tigers', sub: 'Eden Christian Academy BB', map: 'https://maps.google.com/?q=Eden+Christian+Academy+Pittsburgh' },
-    { day: 'fri', start: '2026-06-26T13:25:00', title: '🚗 Depart hotel', sub: 'For Woodland Hills', map: 'https://maps.google.com/?q=Woodland+Hills+High+School+Pittsburgh' },
-    { day: 'fri', start: '2026-06-26T14:45:00', title: '⚾ Colts vs Ohio Valley Rookies Greleski', sub: 'Woodland Hills BB', map: 'https://maps.google.com/?q=Woodland+Hills+High+School+Pittsburgh' },
-    { day: 'sat', start: '2026-06-27T06:25:00', title: '🚗 Depart hotel', sub: 'For Plum HS — earliest game of the trip', map: 'https://maps.google.com/?q=Plum+High+School+Baseball+Field' },
-    { day: 'sat', start: '2026-06-27T08:00:00', title: '⚾ Colts vs Cincinnati Riverbats', sub: 'Plum HS Baseball Field', map: 'https://maps.google.com/?q=Plum+High+School+Baseball+Field' },
-    { day: 'sat', start: '2026-06-27T15:05:00', title: '🚇 Take the T to North Shore', sub: 'Station Square → PNC Park', map: 'https://maps.google.com/?q=Station+Square+Pittsburgh' },
-    { day: 'sat', start: '2026-06-27T16:05:00', title: '⚾ Pirates vs Reds — PNC Park', sub: 'Soccer Night jersey giveaway', map: 'https://maps.google.com/?q=PNC+Park+Pittsburgh' },
-    { day: 'sun', start: '2026-06-28T08:00:00', title: '⚾ Playoff game(s) — TBD', sub: 'Check tournament hub for time/location', map: 'https://go.playacevents.com/events/16th-annual-cap-classic-pittsburgh-2-pittsburgh-pa-06-25-2026/15u' },
-  ];
-
-  function fmtCountdown(ms) {
-    const past = ms < 0;
-    const abs = Math.abs(ms);
-    const totalMin = Math.round(abs / 60000);
-    const days = Math.floor(totalMin / 1440);
-    const hrs = Math.floor((totalMin % 1440) / 60);
-    const min = totalMin % 60;
-    let parts = [];
-    if (days) parts.push(days + 'd');
-    if (hrs) parts.push(hrs + 'h');
-    if (!days) parts.push(min + 'm');
-    return (past ? '' : 'in ') + parts.join(' ') + (past ? ' ago' : '');
-  }
-
-  function renderUpNext() {
-    const card = document.getElementById('up-next');
-    const now = new Date();
-    const upcoming = EVENTS
-      .map(e => ({ ...e, dt: new Date(e.start) }))
-      .filter(e => e.dt.getTime() > now.getTime())
-      .sort((a, b) => a.dt - b.dt);
-
-    if (upcoming.length === 0) {
-      const last = EVENTS[EVENTS.length - 1];
-      if (last && new Date(last.start) < now) {
-        card.hidden = true;
-        return;
-      }
-    }
-
-    const next = upcoming[0];
-    if (!next) { card.hidden = true; return; }
-
-    card.hidden = false;
-    const diffMs = next.dt.getTime() - now.getTime();
-    const isLate = diffMs < 0;
-    card.classList.toggle('late', isLate && diffMs > -30 * 60000);
-
-    document.getElementById('up-next-title').textContent = next.title;
-    const timeStr = next.dt.toLocaleString('en-US', { weekday: 'short', hour: 'numeric', minute: '2-digit' });
-    document.getElementById('up-next-meta').innerHTML =
-      `<span>🕐 ${timeStr}</span><span>⏳ ${fmtCountdown(diffMs)}</span>` +
-      (next.sub ? `<span>${next.sub}</span>` : '');
-
-    const actionsEl = document.getElementById('up-next-actions');
-    actionsEl.innerHTML = '';
-    if (next.map) {
-      const a = document.createElement('a');
-      a.href = next.map; a.target = '_blank'; a.rel = 'noopener';
-      a.textContent = '🗺️ Map';
-      actionsEl.appendChild(a);
-    }
-    const dayBtn = document.createElement('button');
-    dayBtn.textContent = 'View Day';
-    dayBtn.addEventListener('click', () => activateDay(next.day));
-    actionsEl.appendChild(dayBtn);
-  }
-
-  renderUpNext();
-  setInterval(renderUpNext, 60000);
 
   // ---------- Add to calendar (.ics) ----------
   function toICSDate(iso) {
