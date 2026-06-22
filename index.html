@@ -343,6 +343,177 @@
 
   footer.site-footer .gold { color: var(--gold); font-weight: 700; }
   footer.site-footer a { color: var(--baby-blue); text-decoration: none; }
+
+  /* Quick actions */
+  .quick-actions {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+    background: var(--navy-dark);
+    padding: 8px 8px 10px;
+  }
+  .quick-actions a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    background: rgba(255,255,255,0.08);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 8px;
+    padding: 8px 2px;
+    font-size: 0.62rem;
+    font-weight: 700;
+    text-align: center;
+    min-height: 52px;
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  .quick-actions a .qa-icon { font-size: 1.15rem; }
+  .quick-actions a:active { background: var(--gold); color: var(--navy-dark); }
+
+  /* Up Next sticky card */
+  .up-next {
+    background: linear-gradient(135deg, var(--gold), #e8b934);
+    color: var(--navy-dark);
+    padding: 10px 14px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+  }
+  .up-next-label {
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    opacity: 0.75;
+  }
+  .up-next-title {
+    font-size: 1rem;
+    font-weight: 800;
+    margin: 2px 0 3px;
+  }
+  .up-next-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+  .up-next-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .up-next-actions a, .up-next-actions button {
+    flex: 1;
+    background: var(--navy-dark);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    padding: 9px 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .up-next.late { background: linear-gradient(135deg, #d44, #a31c1c); color: var(--white); }
+  .up-next.late .up-next-actions a, .up-next.late .up-next-actions button { background: var(--navy-dark); }
+
+  /* Filter bar */
+  .filter-bar {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding: 10px 0 4px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .filter-bar::-webkit-scrollbar { display: none; }
+  .filter-chip {
+    flex-shrink: 0;
+    background: var(--white);
+    border: 1.5px solid #d8dbe0;
+    color: var(--navy);
+    font-size: 0.74rem;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  .filter-chip.active {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: var(--gold);
+  }
+
+  .row.free.filtered-out { display: none; }
+
+  /* Weather card */
+  .weather-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 14px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    margin-bottom: 12px;
+  }
+  .weather-now {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .weather-now .wtemp { font-size: 2.2rem; font-weight: 800; }
+  .weather-now .wdesc { font-size: 0.85rem; color: #555; line-height: 1.4; }
+  .weather-impact {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 8px 10px;
+    border-radius: 8px;
+  }
+  .weather-impact.good { background: #d7f0db; color: #1f6b32; }
+  .weather-impact.watch { background: #fef6d8; color: #8a6b06; }
+  .weather-impact.bad { background: #fbdada; color: #a31c1c; }
+  .weather-days {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    margin-top: 12px;
+  }
+  .weather-day {
+    background: var(--baby-blue-soft);
+    border-radius: 8px;
+    padding: 8px 4px;
+    text-align: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+  }
+  .weather-day .wd-temp { font-size: 0.9rem; margin-top: 2px; }
+  .weather-day .wd-rain { color: #2a4a86; margin-top: 2px; }
+  .weather-radar-link {
+    display: block;
+    text-align: center;
+    margin-top: 12px;
+    background: var(--navy);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 8px;
+    padding: 10px;
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+  .weather-status { font-size: 0.78rem; color: var(--grey-dark); }
+
+  .cal-btn {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #1a5fb4;
+    background: none;
+    border: 1px solid #1a5fb4;
+    border-radius: 20px;
+    padding: 3px 10px;
+    cursor: pointer;
+  }
 </style>
 </head>
 <body>
@@ -360,15 +531,41 @@
   </div>
 </header>
 
+<div class="quick-actions">
+  <a id="qa-map" href="https://maps.google.com/?q=Hotel+Indigo+Pittsburgh+University+Oakland" target="_blank" rel="noopener"><span class="qa-icon">🗺️</span>Map</a>
+  <a href="tel:4126210880"><span class="qa-icon">📞</span>Hotel</a>
+  <a href="https://go.playacevents.com/events/16th-annual-cap-classic-pittsburgh-2-pittsburgh-pa-06-25-2026/15u" target="_blank" rel="noopener"><span class="qa-icon">🏆</span>Tourney</a>
+  <a href="https://go.playacevents.com/pitch-count/16th-annual-cap-classic-pittsburgh-2-pittsburgh-pa-06-25-2026/15u" target="_blank" rel="noopener"><span class="qa-icon">🔢</span>Pitches</a>
+  <a id="qa-weather" href="#weather" data-day="weather"><span class="qa-icon">☀️</span>Weather</a>
+</div>
+
+<div id="up-next" class="up-next" hidden>
+  <div class="up-next-label">Up Next</div>
+  <div class="up-next-title" id="up-next-title">—</div>
+  <div class="up-next-meta" id="up-next-meta"></div>
+  <div class="up-next-actions" id="up-next-actions"></div>
+</div>
+
 <nav class="tabs">
   <button class="tab-btn active" data-day="thu">Thu</button>
   <button class="tab-btn" data-day="fri">Fri</button>
   <button class="tab-btn" data-day="sat">Sat</button>
   <button class="tab-btn" data-day="sun">Sun</button>
+  <button class="tab-btn" data-day="weather">Weather</button>
   <button class="tab-btn" data-day="best">Best of PGH</button>
 </nav>
 
 <main>
+
+  <div class="filter-bar" id="filter-bar">
+    <button class="filter-chip active" data-filter="all">All</button>
+    <button class="filter-chip" data-filter="food">Food</button>
+    <button class="filter-chip" data-filter="activity">Activities</button>
+    <button class="filter-chip" data-filter="rain">Rain Backup</button>
+    <button class="filter-chip" data-filter="parents">Parents</button>
+    <button class="filter-chip" data-filter="teen">Teen-Friendly</button>
+    <button class="filter-chip" data-filter="low">Low Effort</button>
+  </div>
 
   <!-- THURSDAY -->
   <section id="thu" class="day active">
@@ -394,8 +591,9 @@
         <div class="ev-notes">Eden Christian Academy BB · 206 Siebert Rd, Pittsburgh PA 15237<br>
           <a href="https://go.playacevents.com/events/16th-annual-cap-classic-pittsburgh-2-pittsburgh-pa-06-25-2026/15u" target="_blank" rel="noopener">Tournament link</a> ·
           <a href="https://maps.google.com/?q=Eden+Christian+Academy+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
+        <button class="cal-btn" data-ics-title="Colts vs Bradford Tigers" data-ics-start="2026-06-25T12:30:00" data-ics-end="2026-06-25T14:30:00" data-ics-loc="Eden Christian Academy BB, 206 Siebert Rd, Pittsburgh PA 15237">+ Add to Calendar</button>
         <details class="eat-details">
-          <summary class="lets-eat">Let's Eat! 🍽️</summary>
+          <summary class="lets-eat">Food Near Eden Christian Academy 🍽️</summary>
           <div class="eat-body">
             Quick option near the field on the way out, or hold off and eat once you're back in Oakland (see evening options below) — Oakland has more sit-down choices.
             <span class="todo">TODO: confirm a specific quick-bite spot near Eden Christian Academy / Siebert Rd.</span>
@@ -413,7 +611,7 @@
       <div class="free-block-title">Free Time — after the game, evening near the hotel (until ~9 PM)</div>
       <div class="free-block-sub">First night in Oakland — settle in, no need to go far.</div>
 
-      <div class="row free best">
+      <div class="row free best" data-cat="food">
         <span class="best-badge">★ BEST PICK</span>
         <span class="mode-tag drive5">5-MIN DRIVE / SHUTTLE</span>
         <span class="mode-tag teen">TEEN-FRIENDLY</span>
@@ -428,7 +626,7 @@
       <details class="more-options">
         <summary>More evening options</summary>
         <div class="schedule">
-          <div class="row free">
+          <div class="row free" data-cat="food">
             <span class="mode-tag drive5">5-MIN DRIVE / SHUTTLE</span>
             <span class="mode-tag group">GOOD FOR GROUPS</span>
             <span class="mode-tag parents">PARENTS</span>
@@ -436,7 +634,7 @@
             <div class="ev-notes">221 Schenley Dr · ~5 min drive (or hotel shuttle) · Big patio, handles large groups well, parent-friendly sit-down vibe overlooking Schenley Plaza.
               <a href="https://maps.google.com/?q=The+Porch+at+Schenley+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
           </div>
-          <div class="row free">
+          <div class="row free" data-cat="food">
             <span class="mode-tag drive5">5-MIN DRIVE / SHUTTLE</span>
             <span class="mode-tag parents">PARENTS</span>
             <span class="mode-tag group">GOOD FOR GROUPS</span>
@@ -444,7 +642,7 @@
             <div class="ev-notes">413 S Craig St · ~5 min drive (or hotel shuttle) · Neighborhood restaurant/bar, solid food, relaxed — good for parents who want a real sit-down option.
               <a href="https://maps.google.com/?q=Union+Grill+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
           </div>
-          <div class="row free">
+          <div class="row free" data-cat="activity">
             <span class="mode-tag drive5">5-MIN DRIVE / SHUTTLE</span>
             <span class="mode-tag low">LOW EFFORT</span>
             <span class="mode-tag teen">TEEN-FRIENDLY</span>
@@ -452,7 +650,7 @@
             <div class="ev-notes">4100 Forbes Ave · ~5 min drive (or hotel shuttle) · Food trucks, lawn games (giant chess, bocce), easy spot to decompress after a long travel day.
               <a href="https://maps.google.com/?q=Schenley+Plaza+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
           </div>
-          <div class="row free">
+          <div class="row free" data-cat="activity">
             <span class="mode-tag drive5">5-MIN DRIVE / SHUTTLE</span>
             <span class="mode-tag rain">RAIN BACKUP</span>
             <span class="mode-tag teen">TEEN-FRIENDLY</span>
@@ -474,7 +672,7 @@
       <div class="free-block-title">Free Time — 9:30 AM until 1:25 PM departure</div>
       <div class="free-block-sub">Long morning window — good one for the museum/walk crowd before suiting up.</div>
 
-      <div class="row free best">
+      <div class="row free best" data-cat="activity">
         <span class="best-badge">★ BEST PICK</span>
         <span class="mode-tag drive5">5-MIN DRIVE / SHUTTLE</span>
         <span class="mode-tag teen">TEEN-FRIENDLY</span>
@@ -484,7 +682,7 @@
           <a href="https://maps.google.com/?q=Cathedral+of+Learning+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
       </div>
 
-      <div class="row free">
+      <div class="row free" data-cat="activity">
         <span class="mode-tag drive5">5-MIN DRIVE / SHUTTLE</span>
         <span class="mode-tag low">LOW EFFORT</span>
         <div class="ev-title">Schenley Park</div>
@@ -495,7 +693,7 @@
       <details class="more-options">
         <summary>More morning options</summary>
         <div class="schedule">
-          <div class="row free">
+          <div class="row free" data-cat="activity">
             <span class="mode-tag drive5">5-MIN DRIVE / SHUTTLE</span>
             <span class="mode-tag rain">RAIN BACKUP</span>
             <span class="mode-tag teen">TEEN-FRIENDLY</span>
@@ -503,14 +701,14 @@
             <div class="ev-notes">4400 Forbes Ave · ~5 min drive (or hotel shuttle) · Dinosaurs, armor, art wing — easy indoor option if it's wet out. <span class="todo">TODO: confirm hours/admission.</span>
               <a href="https://maps.google.com/?q=Carnegie+Museum+of+Natural+History+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
           </div>
-          <div class="row free">
+          <div class="row free" data-cat="activity">
             <span class="mode-tag car">CAR / UBER</span>
             <span class="mode-tag rain">RAIN BACKUP</span>
             <div class="ev-title">Heinz History Center</div>
             <div class="ev-notes">1212 Smallman St, Strip District · ~15 min · Western PA &amp; sports history (Sports Museum floor is a good teen draw). <span class="todo">TODO: confirm hours/admission.</span>
               <a href="https://maps.google.com/?q=Heinz+History+Center+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
           </div>
-          <div class="row free">
+          <div class="row free" data-cat="activity">
             <span class="mode-tag car">CAR / UBER</span>
             <span class="mode-tag teen">TEEN-FRIENDLY</span>
             <span class="mode-tag group">GOOD FOR GROUPS</span>
@@ -522,7 +720,7 @@
         </div>
       </details>
 
-      <div class="row free">
+      <div class="row free" data-cat="food">
         <span class="mode-tag drive5">5-MIN DRIVE / SHUTTLE</span>
         <span class="mode-tag low">LOW EFFORT</span>
         <span class="mode-tag res">RESERVATION SMART</span>
@@ -549,8 +747,9 @@
         <div class="ev-notes">Woodland Hills BB · 2550 Greensburg Pike, Pittsburgh PA 15221<br>
           <a href="https://go.playacevents.com/events/16th-annual-cap-classic-pittsburgh-2-pittsburgh-pa-06-25-2026/15u" target="_blank" rel="noopener">Tournament link</a> ·
           <a href="https://maps.google.com/?q=Woodland+Hills+High+School+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
+        <button class="cal-btn" data-ics-title="Colts vs Ohio Valley Rookies Greleski" data-ics-start="2026-06-26T14:45:00" data-ics-end="2026-06-26T16:45:00" data-ics-loc="Woodland Hills BB, 2550 Greensburg Pike, Pittsburgh PA 15221">+ Add to Calendar</button>
         <details class="eat-details">
-          <summary class="lets-eat">Let's Eat! 🍽️</summary>
+          <summary class="lets-eat">Food Near Woodland Hills 🍽️</summary>
           <div class="eat-body">
             Save the appetite for back in Oakland or the Strip District tonight (see evening options below) — not much sit-down food immediately around Woodland Hills.
             <span class="todo">TODO: confirm a quick-bite option near Woodland Hills / Greensburg Pike if needed right after the game.</span>
@@ -568,7 +767,7 @@
       <div class="free-block-title">Free Time — Friday evening, after the game (until ~9 PM)</div>
       <div class="free-block-sub">Back from the game with the whole evening open.</div>
 
-      <div class="row free best">
+      <div class="row free best" data-cat="food">
         <span class="best-badge">★ BEST PICK</span>
         <span class="mode-tag car">CAR / UBER</span>
         <span class="mode-tag teen">TEEN-FRIENDLY</span>
@@ -581,7 +780,7 @@
       <details class="more-options">
         <summary>More evening options</summary>
         <div class="schedule">
-          <div class="row free">
+          <div class="row free" data-cat="food">
             <span class="mode-tag car">CAR / UBER</span>
             <span class="mode-tag parents">PARENTS</span>
             <span class="mode-tag group">GOOD FOR GROUPS</span>
@@ -590,7 +789,7 @@
             <div class="ev-notes">~15 min · German beer hall, big communal tables, solid food menu, outdoor biergarten — call ahead for a large group.
               <a href="https://maps.google.com/?q=Hofbrauhaus+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
           </div>
-          <div class="row free">
+          <div class="row free" data-cat="activity">
             <span class="mode-tag car">CAR / UBER</span>
             <span class="mode-tag teen">TEEN-FRIENDLY</span>
             <span class="mode-tag low">LOW EFFORT</span>
@@ -598,7 +797,7 @@
             <div class="ev-notes">~15-20 min · Quick incline ride up, sweeping skyline view, good photo stop, doesn't take long.
               <a href="https://maps.google.com/?q=Duquesne+Incline+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
           </div>
-          <div class="row free">
+          <div class="row free" data-cat="food">
             <span class="mode-tag car">CAR / UBER</span>
             <span class="mode-tag parents">PARENTS</span>
             <span class="mode-tag group">GOOD FOR GROUPS</span>
@@ -642,8 +841,9 @@
         <div class="ev-notes">Plum HS Baseball Field · 900 Elicker Rd, Plum PA 15239<br>
           <a href="https://go.playacevents.com/events/16th-annual-cap-classic-pittsburgh-2-pittsburgh-pa-06-25-2026/15u" target="_blank" rel="noopener">Tournament link</a> ·
           <a href="https://maps.google.com/?q=Plum+High+School+Baseball+Field" target="_blank" rel="noopener">Map</a></div>
+        <button class="cal-btn" data-ics-title="Colts vs Cincinnati Riverbats" data-ics-start="2026-06-27T08:00:00" data-ics-end="2026-06-27T10:00:00" data-ics-loc="Plum HS Baseball Field, 900 Elicker Rd, Plum PA 15239">+ Add to Calendar</button>
         <details class="eat-details">
-          <summary class="lets-eat">Let's Eat! 🍽️</summary>
+          <summary class="lets-eat">Breakfast Near Plum 🍽️</summary>
           <div class="eat-body">
             Early game — grab breakfast on the way out or right after. <span class="todo">TODO: confirm a breakfast spot near Plum HS / Rt-286 (diner or Eat'n Park-type option).</span>
           </div>
@@ -660,7 +860,7 @@
       <div class="free-block-title">Free Time — ~10:35 AM until heading to PNC Park</div>
       <div class="free-block-sub">Biggest open window of the trip — based out of Station Square, then take the T over to the game.</div>
 
-      <div class="row free">
+      <div class="row free" data-cat="activity">
         <span class="mode-tag car">CAR / UBER</span>
         <span class="mode-tag low">LOW EFFORT</span>
         <div class="ev-title">Station Square (home base)</div>
@@ -668,7 +868,7 @@
           <a href="https://maps.google.com/?q=Station+Square+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
       </div>
 
-      <div class="row free best">
+      <div class="row free best" data-cat="activity">
         <span class="best-badge">★ BEST PICK</span>
         <span class="mode-tag walk">WALKABLE</span>
         <span class="mode-tag teen">TEEN-FRIENDLY</span>
@@ -678,7 +878,7 @@
           <a href="https://maps.google.com/?q=Duquesne+Incline+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
       </div>
 
-      <div class="row free">
+      <div class="row free" data-cat="activity">
         <span class="mode-tag transit">VIA THE T</span>
         <span class="mode-tag rain">RAIN BACKUP</span>
         <span class="mode-tag teen">TEEN-FRIENDLY</span>
@@ -690,14 +890,14 @@
       <details class="more-options">
         <summary>More options</summary>
         <div class="schedule">
-          <div class="row free">
+          <div class="row free" data-cat="food">
             <span class="mode-tag walk">WALKABLE</span>
             <span class="mode-tag teen">TEEN-FRIENDLY</span>
             <div class="ev-title">Strip District</div>
             <div class="ev-notes">~10 min via T or rideshare from Station Square · Food stalls, sandwich shops, dessert — quick lunch stop before heading to PNC Park.
               <a href="https://maps.google.com/?q=Strip+District+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
           </div>
-          <div class="row free">
+          <div class="row free" data-cat="activity">
             <span class="mode-tag car">CAR / UBER</span>
             <span class="mode-tag teen">TEEN-FRIENDLY</span>
             <div class="ev-title">Carnegie Science Center &amp; SportsWorks</div>
@@ -722,15 +922,16 @@
           <a href="https://www.ticketmaster.com/pittsburgh-pirates-tickets/artist/806006" target="_blank" rel="noopener">Tickets</a> ·
           <a href="https://maps.google.com/?q=PNC+Park+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
         <div class="alert-box">⚠️ PNC Park bag policy: NO backpacks allowed. Bags must be under 16"×16"×8". Leave team gear bags in the car — small clutches/clear bags only at the gate.</div>
+        <button class="cal-btn" data-ics-title="Pirates vs Reds — PNC Park" data-ics-start="2026-06-27T16:05:00" data-ics-end="2026-06-27T19:00:00" data-ics-loc="PNC Park, 115 Federal St, Pittsburgh PA 15212">+ Add to Calendar</button>
         <details class="eat-details">
-          <summary class="lets-eat">Let's Eat! 🍽️</summary>
+          <summary class="lets-eat">Pregame Eats Near PNC Park 🍽️</summary>
           <div class="eat-body">
             <strong>Pregame on the North Shore (best option):</strong> North Shore Tavern, Burgatory, Southern Tier, or Federal Galley food hall — all an easy walk from the gates, casual and built for groups. PNC Park also has plenty of concessions (Primanti's stand, BBQ, classic ballpark food) if you'd rather eat inside. <span class="todo">TODO: confirm current PNC Park concession lineup/prices.</span>
           </div>
         </details>
       </div>
 
-      <div class="row free">
+      <div class="row free" data-cat="activity">
         <span class="mode-tag walk">WALKABLE</span>
         <span class="mode-tag low">LOW EFFORT</span>
         <div class="ev-title">Postgame: North Shore stroll</div>
@@ -767,7 +968,7 @@
         <div class="ev-notes"><a href="https://go.playacevents.com/events/16th-annual-cap-classic-pittsburgh-2-pittsburgh-pa-06-25-2026/15u" target="_blank" rel="noopener">Tournament link</a></div>
         <div class="travel-note">Team rule: at the field 1 hour before each first pitch — check the tournament posting between games for the next time/location.</div>
         <details class="eat-details">
-          <summary class="lets-eat">Let's Eat! 🍽️</summary>
+          <summary class="lets-eat">Quick Meal Options 🍽️</summary>
           <div class="eat-body">
             Keep it quick between games — same idea as Saturday, grab something near the field.
           </div>
@@ -777,7 +978,7 @@
       <div class="free-block-title">Between games / if done early</div>
       <div class="free-block-sub">Schedule's too uncertain to plan a far trip — stick close to the hotel.</div>
 
-      <div class="row free">
+      <div class="row free" data-cat="activity">
         <span class="mode-tag drive5">5-MIN DRIVE / SHUTTLE</span>
         <span class="mode-tag low">LOW EFFORT</span>
         <div class="ev-title">Cathedral of Learning &amp; Nationality Rooms</div>
@@ -786,7 +987,7 @@
           <a href="https://maps.google.com/?q=Cathedral+of+Learning+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
       </div>
 
-      <div class="row free">
+      <div class="row free" data-cat="activity">
         <span class="mode-tag drive5">5-MIN DRIVE / SHUTTLE</span>
         <span class="mode-tag low">LOW EFFORT</span>
         <div class="ev-title">Schenley Park</div>
@@ -794,7 +995,7 @@
           <a href="https://maps.google.com/?q=Schenley+Park+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
       </div>
 
-      <div class="row free">
+      <div class="row free" data-cat="food">
         <span class="mode-tag drive5">5-MIN DRIVE / SHUTTLE</span>
         <span class="mode-tag low">LOW EFFORT</span>
         <div class="ev-title">Primanti Bros (Oakland)</div>
@@ -829,13 +1030,35 @@
     </div>
   </section>
 
+  <!-- WEATHER -->
+  <section id="weather" class="day">
+    <h2 class="day-heading">Weather &amp; Radar — Pittsburgh, PA</h2>
+    <div class="weather-card">
+      <div class="weather-status" id="weather-status">Loading current conditions…</div>
+      <div class="weather-now" id="weather-now" style="display:none;">
+        <div class="wtemp" id="weather-temp">—</div>
+        <div class="wdesc" id="weather-desc">—</div>
+      </div>
+      <div class="weather-impact" id="weather-impact" style="display:none;"></div>
+      <div class="weather-days" id="weather-days"></div>
+      <a class="weather-radar-link" href="https://radar.weather.gov/station/PBZ/standard" target="_blank" rel="noopener">📡 Open Live Radar (NWS — Pittsburgh/PBZ)</a>
+    </div>
+    <div class="key-info">
+      <h3>If Rain Hits</h3>
+      Check the tournament hub first for delay/reschedule postings, then <a href="https://x.com/AC_Tournaments" target="_blank" rel="noopener">@AC_Tournaments on X</a> for live updates.<br>
+      Bring a canopy/pop-up tent and towels if storms are forecast — fields can call short delays without much warning.<br>
+      If a game gets rained out, check the <strong>Rain Backup</strong> filter on each day's Free Time list for an indoor option nearby.<br>
+      <a href="https://go.playacevents.com/events/16th-annual-cap-classic-pittsburgh-2-pittsburgh-pa-06-25-2026/15u" target="_blank" rel="noopener">Tournament Hub</a>
+    </div>
+  </section>
+
   <!-- BEST OF PITTSBURGH -->
   <section id="best" class="day">
     <h2 class="day-heading">Best of Pittsburgh for Baseball Families</h2>
     <div class="free-block-sub">Affordable, parent-approved picks for a team with teenagers — beyond the ballpark. Worth carving out time for if the schedule allows.</div>
     <div class="schedule">
 
-      <div class="row free best">
+      <div class="row free best" data-cat="activity">
         <span class="best-badge">★ TOP PICK</span>
         <span class="mode-tag walk">WALKABLE</span>
         <span class="mode-tag teen">TEEN-FRIENDLY</span>
@@ -845,7 +1068,7 @@
           <a href="https://maps.google.com/?q=Duquesne+Incline+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
       </div>
 
-      <div class="row free">
+      <div class="row free" data-cat="activity">
         <span class="mode-tag car">CAR / UBER</span>
         <span class="mode-tag teen">TEEN-FRIENDLY</span>
         <span class="mode-tag group">GOOD FOR GROUPS</span>
@@ -854,7 +1077,7 @@
           <a href="https://maps.google.com/?q=Carnegie+Science+Center+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
       </div>
 
-      <div class="row free">
+      <div class="row free" data-cat="activity">
         <span class="mode-tag car">CAR / UBER</span>
         <span class="mode-tag parents">PARENTS</span>
         <span class="mode-tag group">GOOD FOR GROUPS</span>
@@ -863,7 +1086,7 @@
           <a href="https://maps.google.com/?q=Phipps+Conservatory+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
       </div>
 
-      <div class="row free">
+      <div class="row free" data-cat="food">
         <span class="mode-tag drive5">5-MIN DRIVE / SHUTTLE</span>
         <span class="mode-tag low">LOW EFFORT</span>
         <span class="mode-tag res">RESERVATION SMART</span>
@@ -872,7 +1095,7 @@
           <a href="https://maps.google.com/?q=Pamela%27s+Diner+Oakland+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
       </div>
 
-      <div class="row free">
+      <div class="row free" data-cat="food">
         <span class="mode-tag walk">WALKABLE</span>
         <span class="mode-tag group">GOOD FOR GROUPS</span>
         <span class="mode-tag parents">PARENTS</span>
@@ -884,7 +1107,7 @@
       <details class="more-options">
         <summary>If you've got a full extra day: Kennywood</summary>
         <div class="schedule">
-          <div class="row free">
+          <div class="row free" data-cat="activity">
             <span class="mode-tag car">CAR / UBER</span>
             <span class="mode-tag teen">TEEN-FRIENDLY</span>
             <span class="mode-tag group">GOOD FOR GROUPS</span>
@@ -913,17 +1136,225 @@
 </footer>
 
 <script>
+  // ---------- Tab switching ----------
   const tabs = document.querySelectorAll('.tab-btn');
   const days = document.querySelectorAll('.day');
+
+  function activateDay(dayId) {
+    tabs.forEach(b => b.classList.toggle('active', b.dataset.day === dayId));
+    days.forEach(d => d.classList.toggle('active', d.id === dayId));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   tabs.forEach(btn => {
-    btn.addEventListener('click', () => {
-      tabs.forEach(b => b.classList.remove('active'));
-      days.forEach(d => d.classList.remove('active'));
+    btn.addEventListener('click', () => activateDay(btn.dataset.day));
+  });
+
+  document.getElementById('qa-weather').addEventListener('click', (e) => {
+    e.preventDefault();
+    activateDay('weather');
+  });
+
+  // ---------- Up Next ----------
+  // Key schedule moments, in order. Times are local (America/New_York).
+  const EVENTS = [
+    { day: 'thu', start: '2026-06-25T09:15:00', title: '🚗 Depart Camp Hill', sub: 'For Eden Christian Academy', map: 'https://maps.google.com/?q=Eden+Christian+Academy+Pittsburgh', rule: 'Team rule: at the field 1 hour before first pitch.' },
+    { day: 'thu', start: '2026-06-25T12:30:00', title: '⚾ Colts vs Bradford Tigers', sub: 'Eden Christian Academy BB', map: 'https://maps.google.com/?q=Eden+Christian+Academy+Pittsburgh' },
+    { day: 'fri', start: '2026-06-26T13:25:00', title: '🚗 Depart hotel', sub: 'For Woodland Hills', map: 'https://maps.google.com/?q=Woodland+Hills+High+School+Pittsburgh', rule: 'Team rule: at the field 1 hour before first pitch.' },
+    { day: 'fri', start: '2026-06-26T14:45:00', title: '⚾ Colts vs Ohio Valley Rookies Greleski', sub: 'Woodland Hills BB', map: 'https://maps.google.com/?q=Woodland+Hills+High+School+Pittsburgh' },
+    { day: 'sat', start: '2026-06-27T06:25:00', title: '🚗 Depart hotel', sub: 'For Plum HS — earliest game of the trip', map: 'https://maps.google.com/?q=Plum+High+School+Baseball+Field', rule: 'Team rule: at the field 1 hour before first pitch.' },
+    { day: 'sat', start: '2026-06-27T08:00:00', title: '⚾ Colts vs Cincinnati Riverbats', sub: 'Plum HS Baseball Field', map: 'https://maps.google.com/?q=Plum+High+School+Baseball+Field' },
+    { day: 'sat', start: '2026-06-27T15:05:00', title: '🚇 Take the T to North Shore', sub: 'Station Square → PNC Park', map: 'https://maps.google.com/?q=Station+Square+Pittsburgh' },
+    { day: 'sat', start: '2026-06-27T16:05:00', title: '⚾ Pirates vs Reds — PNC Park', sub: 'Soccer Night jersey giveaway', map: 'https://maps.google.com/?q=PNC+Park+Pittsburgh' },
+    { day: 'sun', start: '2026-06-28T08:00:00', title: '⚾ Playoff game(s) — TBD', sub: 'Check tournament hub for time/location', map: 'https://go.playacevents.com/events/16th-annual-cap-classic-pittsburgh-2-pittsburgh-pa-06-25-2026/15u', rule: 'Team rule: at the field 1 hour before each first pitch.' },
+  ];
+
+  function fmtCountdown(ms) {
+    const past = ms < 0;
+    const abs = Math.abs(ms);
+    const totalMin = Math.round(abs / 60000);
+    const days = Math.floor(totalMin / 1440);
+    const hrs = Math.floor((totalMin % 1440) / 60);
+    const min = totalMin % 60;
+    let parts = [];
+    if (days) parts.push(days + 'd');
+    if (hrs) parts.push(hrs + 'h');
+    if (!days) parts.push(min + 'm');
+    return (past ? '' : 'in ') + parts.join(' ') + (past ? ' ago' : '');
+  }
+
+  function renderUpNext() {
+    const card = document.getElementById('up-next');
+    const now = new Date();
+    const upcoming = EVENTS
+      .map(e => ({ ...e, dt: new Date(e.start) }))
+      .filter(e => e.dt.getTime() > now.getTime())
+      .sort((a, b) => a.dt - b.dt);
+
+    if (upcoming.length === 0) {
+      const last = EVENTS[EVENTS.length - 1];
+      if (last && new Date(last.start) < now) {
+        card.hidden = true;
+        return;
+      }
+    }
+
+    const next = upcoming[0];
+    if (!next) { card.hidden = true; return; }
+
+    card.hidden = false;
+    const diffMs = next.dt.getTime() - now.getTime();
+    const isLate = diffMs < 0;
+    card.classList.toggle('late', isLate && diffMs > -30 * 60000);
+
+    document.getElementById('up-next-title').textContent = next.title;
+    const timeStr = next.dt.toLocaleString('en-US', { weekday: 'short', hour: 'numeric', minute: '2-digit' });
+    document.getElementById('up-next-meta').innerHTML =
+      `<span>🕐 ${timeStr}</span><span>⏳ ${fmtCountdown(diffMs)}</span>` +
+      (next.sub ? `<span>${next.sub}</span>` : '');
+
+    const actionsEl = document.getElementById('up-next-actions');
+    actionsEl.innerHTML = '';
+    if (next.map) {
+      const a = document.createElement('a');
+      a.href = next.map; a.target = '_blank'; a.rel = 'noopener';
+      a.textContent = '🗺️ Map';
+      actionsEl.appendChild(a);
+    }
+    const dayBtn = document.createElement('button');
+    dayBtn.textContent = 'View Day';
+    dayBtn.addEventListener('click', () => activateDay(next.day));
+    actionsEl.appendChild(dayBtn);
+  }
+
+  renderUpNext();
+  setInterval(renderUpNext, 60000);
+
+  // ---------- Filter chips ----------
+  const filterBar = document.getElementById('filter-bar');
+  if (filterBar) {
+    filterBar.addEventListener('click', (e) => {
+      const btn = e.target.closest('.filter-chip');
+      if (!btn) return;
+      filterBar.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
       btn.classList.add('active');
-      document.getElementById(btn.dataset.day).classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      const filter = btn.dataset.filter;
+
+      document.querySelectorAll('.row.free').forEach(row => {
+        if (filter === 'all') {
+          row.classList.remove('filtered-out');
+          return;
+        }
+        const tagClasses = Array.from(row.querySelectorAll('.mode-tag')).map(t =>
+          Array.from(t.classList).find(c => c !== 'mode-tag')
+        );
+        const cat = row.dataset.cat;
+        const matches = (filter === 'food' || filter === 'activity')
+          ? cat === filter
+          : tagClasses.includes(filter);
+        row.classList.toggle('filtered-out', !matches);
+        if (matches) {
+          const details = row.closest('details.more-options');
+          if (details) details.open = true;
+        }
+      });
+    });
+  }
+
+  // ---------- Add to calendar (.ics) ----------
+  function toICSDate(iso) {
+    return iso.replace(/[-:]/g, '').slice(0, 15);
+  }
+
+  document.querySelectorAll('.cal-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const { icsTitle, icsStart, icsEnd, icsLoc } = btn.dataset;
+      const ics = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'BEGIN:VEVENT',
+        `SUMMARY:${icsTitle}`,
+        `DTSTART:${toICSDate(icsStart)}`,
+        `DTEND:${toICSDate(icsEnd)}`,
+        `LOCATION:${icsLoc}`,
+        'END:VEVENT',
+        'END:VCALENDAR',
+      ].join('\r\n');
+      const blob = new Blob([ics], { type: 'text/calendar' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = icsTitle.replace(/[^a-z0-9]+/gi, '-') + '.ics';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
     });
   });
+
+  // ---------- Weather (Open-Meteo — free, no API key) ----------
+  async function loadWeather() {
+    const statusEl = document.getElementById('weather-status');
+    try {
+      const url = 'https://api.open-meteo.com/v1/forecast?latitude=40.4406&longitude=-79.9959'
+        + '&current=temperature_2m,precipitation_probability,weather_code'
+        + '&daily=temperature_2m_max,precipitation_probability_max,weather_code'
+        + '&temperature_unit=fahrenheit&timezone=America%2FNew_York&forecast_days=4';
+      const res = await fetch(url);
+      const data = await res.json();
+
+      const code = data.current.weather_code;
+      const temp = Math.round(data.current.temperature_2m);
+      const rainChance = data.current.precipitation_probability;
+
+      const codeDesc = {
+        0: 'Clear sky', 1: 'Mostly clear', 2: 'Partly cloudy', 3: 'Overcast',
+        45: 'Fog', 48: 'Fog', 51: 'Light drizzle', 53: 'Drizzle', 55: 'Heavy drizzle',
+        61: 'Light rain', 63: 'Rain', 65: 'Heavy rain', 71: 'Light snow', 73: 'Snow',
+        75: 'Heavy snow', 80: 'Rain showers', 81: 'Rain showers', 82: 'Violent showers',
+        95: 'Thunderstorm', 96: 'Thunderstorm w/ hail', 99: 'Severe thunderstorm',
+      };
+
+      document.getElementById('weather-temp').textContent = temp + '°F';
+      document.getElementById('weather-desc').textContent =
+        (codeDesc[code] || 'Conditions updating') + ' · ' + rainChance + '% chance of rain right now';
+      document.getElementById('weather-now').style.display = 'flex';
+      statusEl.textContent = 'Pittsburgh, PA · updated ' + new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+
+      const impactEl = document.getElementById('weather-impact');
+      let impact, impactClass;
+      if ([95, 96, 99].includes(code)) {
+        impact = '⛈️ Lightning risk — games may be delayed. Check the tournament hub before heading out.';
+        impactClass = 'bad';
+      } else if (rainChance >= 50 || [61, 63, 65, 80, 81, 82, 51, 53, 55].includes(code)) {
+        impact = '🌧️ Rain likely — pack a canopy/towels, bring a rain backup plan.';
+        impactClass = 'watch';
+      } else {
+        impact = '✅ Good for baseball — no significant weather concerns right now.';
+        impactClass = 'good';
+      }
+      impactEl.textContent = impact;
+      impactEl.className = 'weather-impact ' + impactClass;
+      impactEl.style.display = 'block';
+
+      const daysEl = document.getElementById('weather-days');
+      daysEl.innerHTML = '';
+      data.daily.time.forEach((dateStr, i) => {
+        const d = new Date(dateStr + 'T12:00:00');
+        const label = d.toLocaleDateString('en-US', { weekday: 'short' });
+        const hi = Math.round(data.daily.temperature_2m_max[i]);
+        const rain = data.daily.precipitation_probability_max[i];
+        const cell = document.createElement('div');
+        cell.className = 'weather-day';
+        cell.innerHTML = `<div>${label}</div><div class="wd-temp">${hi}°</div><div class="wd-rain">${rain}% 🌧️</div>`;
+        daysEl.appendChild(cell);
+      });
+    } catch (err) {
+      statusEl.textContent = 'Weather unavailable right now — check the radar link below or @AC_Tournaments on X.';
+    }
+  }
+
+  loadWeather();
 </script>
 
 </body>
