@@ -208,11 +208,8 @@
   }
   .mode-tag.walk { background: #d7f0db; color: #1f6b32; }
   .mode-tag.car { background: #fbe2cf; color: #9a4d10; }
-  .mode-tag.teen { background: #e3dafc; color: #4b2e9c; }
   .mode-tag.group { background: #cdeef2; color: #15616d; }
-  .mode-tag.parents { background: #0c1f4d; color: #d4a017; }
   .mode-tag.rain { background: #d8e3f3; color: #2a4a86; }
-  .mode-tag.low { background: #fef6d8; color: #8a6b06; }
   .mode-tag.res { background: #fbdada; color: #a31c1c; }
   .mode-tag.drive5 { background: #fde2c8; color: #8a4b06; }
   .mode-tag.transit { background: #d6e8d2; color: #2f6b1f; }
@@ -347,11 +344,12 @@
   /* Quick actions */
   .quick-actions {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 6px;
     background: var(--navy-dark);
     padding: 8px 8px 10px;
   }
+  .quick-actions a.qa-wide { grid-column: span 2; }
   .quick-actions a {
     display: flex;
     flex-direction: column;
@@ -505,8 +503,7 @@
 </header>
 
 <div class="quick-actions">
-  <a href="https://go.playacevents.com/events/16th-annual-cap-classic-pittsburgh-2-pittsburgh-pa-06-25-2026/15u" target="_blank" rel="noopener"><span class="qa-icon">📅</span>Schedule</a>
-  <a href="https://go.playacevents.com/events/16th-annual-cap-classic-pittsburgh-2-pittsburgh-pa-06-25-2026/15u" target="_blank" rel="noopener"><span class="qa-icon">🏆</span>Standings</a>
+  <a class="qa-wide" href="https://go.playacevents.com/events/16th-annual-cap-classic-pittsburgh-2-pittsburgh-pa-06-25-2026/15u" target="_blank" rel="noopener"><span class="qa-icon">🏆</span>Tournament Hub</a>
   <a href="https://go.playacevents.com/pitch-count/16th-annual-cap-classic-pittsburgh-2-pittsburgh-pa-06-25-2026/15u" target="_blank" rel="noopener"><span class="qa-icon">🔢</span>Pitches</a>
   <a id="qa-weather" href="#weather" data-day="weather"><span class="qa-icon">☀️</span>Weather</a>
 </div>
@@ -556,7 +553,6 @@
           <summary class="lets-eat">Food Near Eden Christian Academy 🍽️</summary>
           <div class="eat-body">
             Quick option near the field on the way out, or hold off and eat once you're back in Oakland (see evening options below) — Oakland has more sit-down choices.
-            <span class="todo">TODO: confirm a specific quick-bite spot near Eden Christian Academy / Siebert Rd.</span>
           </div>
         </details>
       </div>
@@ -574,13 +570,10 @@
       <div class="row free best" data-cat="food">
         <span class="best-badge">★ BEST PICK</span>
         <span class="mode-tag drive5">5-MIN DRIVE / SHUTTLE</span>
-        <span class="mode-tag teen">TEEN-FRIENDLY</span>
         <span class="mode-tag group">GOOD FOR GROUPS</span>
-        <span class="mode-tag low">LOW EFFORT</span>
         <div class="ev-title">Primanti Bros (Oakland)</div>
         <div class="ev-notes">Forbes Ave, Oakland · ~5 min drive (or hotel shuttle) — hotel sits down by the river, central Oakland is up the hill · Pittsburgh classic sandwich shop — fries-and-coleslaw-on-the-sandwich style, fast, casual, easy for a big group to roll into without a reservation.
-          <a href="https://maps.google.com/?q=Primanti+Bros+Oakland+Pittsburgh" target="_blank" rel="noopener">Map</a>
-          <span class="todo"> TODO: confirm current hours.</span></div>
+          <a href="https://maps.google.com/?q=Primanti+Bros+Oakland+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
       </div>
 
       <details class="more-options">
@@ -589,14 +582,12 @@
           <div class="row free" data-cat="food">
             <span class="mode-tag drive5">5-MIN DRIVE / SHUTTLE</span>
             <span class="mode-tag group">GOOD FOR GROUPS</span>
-            <span class="mode-tag parents">PARENTS</span>
             <div class="ev-title">The Porch at Schenley</div>
             <div class="ev-notes">221 Schenley Dr · ~5 min drive (or hotel shuttle) · Big patio, handles large groups well, parent-friendly sit-down vibe overlooking Schenley Plaza.
               <a href="https://maps.google.com/?q=The+Porch+at+Schenley+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
           </div>
           <div class="row free" data-cat="food">
             <span class="mode-tag drive5">5-MIN DRIVE / SHUTTLE</span>
-            <span class="mode-tag parents">PARENTS</span>
             <span class="mode-tag group">GOOD FOR GROUPS</span>
             <div class="ev-title">Union Grill</div>
             <div class="ev-notes">413 S Craig St · ~5 min drive (or hotel shuttle) · Neighborhood restaurant/bar, solid food, relaxed — good for parents who want a real sit-down option.
@@ -604,8 +595,6 @@
           </div>
           <div class="row free" data-cat="activity">
             <span class="mode-tag drive5">5-MIN DRIVE / SHUTTLE</span>
-            <span class="mode-tag low">LOW EFFORT</span>
-            <span class="mode-tag teen">TEEN-FRIENDLY</span>
             <div class="ev-title">Schenley Plaza lawn</div>
             <div class="ev-notes">4100 Forbes Ave · ~5 min drive (or hotel shuttle) · Food trucks, lawn games (giant chess, bocce), easy spot to decompress after a long travel day.
               <a href="https://maps.google.com/?q=Schenley+Plaza+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
@@ -613,9 +602,8 @@
           <div class="row free" data-cat="activity">
             <span class="mode-tag drive5">5-MIN DRIVE / SHUTTLE</span>
             <span class="mode-tag rain">RAIN BACKUP</span>
-            <span class="mode-tag teen">TEEN-FRIENDLY</span>
             <div class="ev-title">Carnegie Museum of Natural History &amp; Art</div>
-            <div class="ev-notes">4400 Forbes Ave · ~5 min drive (or hotel shuttle) · Dinosaurs, indoor, good if weather turns. <span class="todo">TODO: confirm evening closing time before counting on this.</span>
+            <div class="ev-notes">4400 Forbes Ave · ~5 min drive (or hotel shuttle) · Dinosaurs, indoor, good if weather turns.
               <a href="https://maps.google.com/?q=Carnegie+Museum+of+Natural+History+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
           </div>
         </div>
@@ -635,7 +623,6 @@
       <div class="row free best" data-cat="activity">
         <span class="best-badge">★ BEST PICK</span>
         <span class="mode-tag drive5">5-MIN DRIVE / SHUTTLE</span>
-        <span class="mode-tag teen">TEEN-FRIENDLY</span>
         <div class="ev-title">Cathedral of Learning &amp; Nationality Rooms</div>
         <div class="ev-notes">4200 Fifth Ave, Pittsburgh PA 15260 · ~5 min drive (or hotel shuttle) — hotel is down by the river, this is up the Oakland hill · Explore the iconic Cathedral of Learning and its famous Nationality Rooms. Self-guided and guided tours are available for a small fee (~$10 adults / $6 youth).
           <a href="https://www.nationalityrooms.pitt.edu/tours" target="_blank" rel="noopener">Nationality Rooms info</a> ·
@@ -644,7 +631,6 @@
 
       <div class="row free" data-cat="activity">
         <span class="mode-tag drive5">5-MIN DRIVE / SHUTTLE</span>
-        <span class="mode-tag low">LOW EFFORT</span>
         <div class="ev-title">Schenley Park</div>
         <div class="ev-notes">~5 min drive (or hotel shuttle) · Open fields, trails, disc golf course — toss a ball around, stretch the legs before the game.
           <a href="https://maps.google.com/?q=Schenley+Park+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
@@ -655,7 +641,6 @@
         <div class="schedule">
           <div class="row free" data-cat="food">
             <span class="mode-tag drive5">5-MIN DRIVE / SHUTTLE</span>
-            <span class="mode-tag low">LOW EFFORT</span>
             <span class="mode-tag res">RESERVATION SMART</span>
             <div class="ev-title">Pamela's Diner — breakfast pick</div>
             <div class="ev-notes">3703 Forbes Ave, Oakland · Pittsburgh's famous crepe-style hotcakes, a local institution and budget-friendly. Cash only, open 8 AM–2 PM — good call for a morning before a museum or walk.
@@ -664,21 +649,19 @@
           <div class="row free" data-cat="activity">
             <span class="mode-tag drive5">5-MIN DRIVE / SHUTTLE</span>
             <span class="mode-tag rain">RAIN BACKUP</span>
-            <span class="mode-tag teen">TEEN-FRIENDLY</span>
             <div class="ev-title">Carnegie Museum of Natural History &amp; Art</div>
-            <div class="ev-notes">4400 Forbes Ave · ~5 min drive (or hotel shuttle) · Dinosaurs, armor, art wing — easy indoor option if it's wet out. <span class="todo">TODO: confirm hours/admission.</span>
+            <div class="ev-notes">4400 Forbes Ave · ~5 min drive (or hotel shuttle) · Dinosaurs, armor, art wing — easy indoor option if it's wet out.
               <a href="https://maps.google.com/?q=Carnegie+Museum+of+Natural+History+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
           </div>
           <div class="row free" data-cat="activity">
             <span class="mode-tag car">CAR / UBER</span>
             <span class="mode-tag rain">RAIN BACKUP</span>
             <div class="ev-title">Heinz History Center</div>
-            <div class="ev-notes">1212 Smallman St, Strip District · ~15 min · Western PA &amp; sports history (Sports Museum floor is a good teen draw). <span class="todo">TODO: confirm hours/admission.</span>
+            <div class="ev-notes">1212 Smallman St, Strip District · ~15 min · Western PA &amp; sports history (Sports Museum floor is a good teen draw).
               <a href="https://maps.google.com/?q=Heinz+History+Center+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
           </div>
           <div class="row free" data-cat="activity">
             <span class="mode-tag car">CAR / UBER</span>
-            <span class="mode-tag teen">TEEN-FRIENDLY</span>
             <span class="mode-tag group">GOOD FOR GROUPS</span>
             <span class="mode-tag rain">RAIN BACKUP</span>
             <div class="ev-title">Pins Mechanical Co. (South Side Works)</div>
@@ -690,7 +673,6 @@
 
       <div class="row free" data-cat="food">
         <span class="mode-tag drive5">5-MIN DRIVE / SHUTTLE</span>
-        <span class="mode-tag low">LOW EFFORT</span>
         <span class="mode-tag res">RESERVATION SMART</span>
         <div class="ev-title">Pre-game lunch: grab food before you go</div>
         <div class="ev-notes">Quick stop in Oakland before the 1:25 PM departure — Primanti Bros or Stack'd Oakland both move fast for groups. No time for a sit-down spot once the bus/cars need to roll.
@@ -720,7 +702,6 @@
           <summary class="lets-eat">Food Near Woodland Hills 🍽️</summary>
           <div class="eat-body">
             Save the appetite for back in Oakland or the Strip District tonight (see evening options below) — not much sit-down food immediately around Woodland Hills.
-            <span class="todo">TODO: confirm a quick-bite option near Woodland Hills / Greensburg Pike if needed right after the game.</span>
           </div>
         </details>
       </div>
@@ -738,7 +719,6 @@
       <div class="row free best" data-cat="food">
         <span class="best-badge">★ BEST PICK</span>
         <span class="mode-tag car">CAR / UBER</span>
-        <span class="mode-tag teen">TEEN-FRIENDLY</span>
         <span class="mode-tag group">GOOD FOR GROUPS</span>
         <div class="ev-title">Strip District — dinner &amp; stroll</div>
         <div class="ev-notes">~15 min · Walkable once there — food stalls, sandwich shops (including the original Primanti Bros on 18th St), dessert spots, good people-watching for a team that wants to wander.
@@ -750,7 +730,6 @@
         <div class="schedule">
           <div class="row free" data-cat="food">
             <span class="mode-tag car">CAR / UBER</span>
-            <span class="mode-tag parents">PARENTS</span>
             <span class="mode-tag group">GOOD FOR GROUPS</span>
             <span class="mode-tag res">RESERVATION SMART</span>
             <div class="ev-title">Hofbräuhaus Pittsburgh (Station Square)</div>
@@ -759,15 +738,12 @@
           </div>
           <div class="row free" data-cat="activity">
             <span class="mode-tag car">CAR / UBER</span>
-            <span class="mode-tag teen">TEEN-FRIENDLY</span>
-            <span class="mode-tag low">LOW EFFORT</span>
             <div class="ev-title">Mount Washington Overlook / Duquesne Incline</div>
             <div class="ev-notes">~15-20 min · Quick incline ride up, sweeping skyline view, good photo stop, doesn't take long.
               <a href="https://maps.google.com/?q=Duquesne+Incline+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
           </div>
           <div class="row free" data-cat="food">
             <span class="mode-tag car">CAR / UBER</span>
-            <span class="mode-tag parents">PARENTS</span>
             <span class="mode-tag group">GOOD FOR GROUPS</span>
             <div class="ev-title">South Side (East Carson St)</div>
             <div class="ev-notes">~15 min · Long strip of restaurants/bars, easygoing crowd, plenty of TVs and outdoor seating options.
@@ -813,7 +789,7 @@
         <details class="eat-details">
           <summary class="lets-eat">Breakfast Near Plum 🍽️</summary>
           <div class="eat-body">
-            Early game — grab breakfast on the way out or right after. <span class="todo">TODO: confirm a breakfast spot near Plum HS / Rt-286 (diner or Eat'n Park-type option).</span>
+            Early game — grab breakfast on the way out or right after.
           </div>
         </details>
       </div>
@@ -830,7 +806,6 @@
 
       <div class="row free" data-cat="activity">
         <span class="mode-tag car">CAR / UBER</span>
-        <span class="mode-tag low">LOW EFFORT</span>
         <div class="ev-title">Station Square (home base)</div>
         <div class="ev-notes">125 W Station Square Dr, Pittsburgh PA 15219 · Parked here for the day · This is just the parking/launch point, not a destination on its own — it's the easiest base for walking to the Duquesne Incline or catching the T to the game.
           <a href="https://maps.google.com/?q=Station+Square+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
@@ -839,8 +814,6 @@
       <div class="row free best" data-cat="activity">
         <span class="best-badge">★ BEST PICK</span>
         <span class="mode-tag walk">WALKABLE</span>
-        <span class="mode-tag teen">TEEN-FRIENDLY</span>
-        <span class="mode-tag low">LOW EFFORT</span>
         <div class="ev-title">Duquesne Incline + Mt. Washington Overlook</div>
         <div class="ev-notes">Right at Station Square · Pittsburgh's most iconic view — a quick, affordable incline ride up Mt. Washington for a sweeping skyline/three-rivers photo, then back down. Doesn't take long, easy with a group.
           <a href="https://maps.google.com/?q=Duquesne+Incline+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
@@ -849,7 +822,6 @@
       <div class="row free" data-cat="activity">
         <span class="mode-tag transit">VIA THE T</span>
         <span class="mode-tag rain">RAIN BACKUP</span>
-        <span class="mode-tag teen">TEEN-FRIENDLY</span>
         <div class="ev-title">The Andy Warhol Museum</div>
         <div class="ev-notes">117 Sandusky St, Pittsburgh PA 15212 · Take the T from Station Square to North Side, short walk from there · Modern art museum, very photogenic, holds attention well, all-indoor. <strong>Note: some exhibits explore mature/adult themes — parents may want to use discretion with younger teens, and museum staff can point you toward family-friendly galleries.</strong>
           <a href="https://maps.google.com/?q=Andy+Warhol+Museum+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
@@ -860,14 +832,12 @@
         <div class="schedule">
           <div class="row free" data-cat="food">
             <span class="mode-tag walk">WALKABLE</span>
-            <span class="mode-tag teen">TEEN-FRIENDLY</span>
             <div class="ev-title">Strip District</div>
             <div class="ev-notes">~10 min via T or rideshare from Station Square · Food stalls, sandwich shops, dessert — quick lunch stop before heading to PNC Park.
               <a href="https://maps.google.com/?q=Strip+District+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
           </div>
           <div class="row free" data-cat="activity">
             <span class="mode-tag car">CAR / UBER</span>
-            <span class="mode-tag teen">TEEN-FRIENDLY</span>
             <div class="ev-title">Carnegie Science Center &amp; SportsWorks</div>
             <div class="ev-notes">1 Allegheny Ave, Pittsburgh PA 15212 · ~10 min from Station Square, convenient to the North Shore · Hands-on science exhibits plus SportsWorks — speed pitch, vertical leap, batting-style challenges. Especially good for athletes and teens.
               <a href="https://maps.google.com/?q=Carnegie+Science+Center+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
@@ -894,14 +864,13 @@
         <details class="eat-details">
           <summary class="lets-eat">Pregame Eats Near PNC Park 🍽️</summary>
           <div class="eat-body">
-            <strong>Pregame on the North Shore (best option):</strong> North Shore Tavern, Burgatory, Southern Tier, or Federal Galley food hall — all an easy walk from the gates, casual and built for groups. PNC Park also has plenty of concessions (Primanti's stand, BBQ, classic ballpark food) if you'd rather eat inside. <span class="todo">TODO: confirm current PNC Park concession lineup/prices.</span>
+            <strong>Pregame on the North Shore (best option):</strong> North Shore Tavern, Burgatory, Southern Tier, or Federal Galley food hall — all an easy walk from the gates, casual and built for groups. PNC Park also has plenty of concessions (Primanti's stand, BBQ, classic ballpark food) if you'd rather eat inside.
           </div>
         </details>
       </div>
 
       <div class="row free" data-cat="activity">
         <span class="mode-tag walk">WALKABLE</span>
-        <span class="mode-tag low">LOW EFFORT</span>
         <div class="ev-title">Postgame: North Shore stroll</div>
         <div class="ev-notes">Walk along the river / Roberto Clemente Bridge on the way back to the T stop.
           <a href="https://maps.google.com/?q=North+Shore+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
@@ -948,7 +917,6 @@
 
       <div class="row free" data-cat="activity">
         <span class="mode-tag drive5">5-MIN DRIVE / SHUTTLE</span>
-        <span class="mode-tag low">LOW EFFORT</span>
         <div class="ev-title">Cathedral of Learning &amp; Nationality Rooms</div>
         <div class="ev-notes">4200 Fifth Ave · ~5 min drive (or hotel shuttle) · Explore the iconic Cathedral of Learning and its famous Nationality Rooms. Self-guided and guided tours available for a small fee.
           <a href="https://www.nationalityrooms.pitt.edu/tours" target="_blank" rel="noopener">Nationality Rooms info</a> ·
@@ -957,7 +925,6 @@
 
       <div class="row free" data-cat="activity">
         <span class="mode-tag drive5">5-MIN DRIVE / SHUTTLE</span>
-        <span class="mode-tag low">LOW EFFORT</span>
         <div class="ev-title">Schenley Park</div>
         <div class="ev-notes">~5 min drive (or hotel shuttle) · Open fields, trails — easy way to kill time without committing to a long drive.
           <a href="https://maps.google.com/?q=Schenley+Park+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
@@ -965,7 +932,6 @@
 
       <div class="row free" data-cat="food">
         <span class="mode-tag drive5">5-MIN DRIVE / SHUTTLE</span>
-        <span class="mode-tag low">LOW EFFORT</span>
         <div class="ev-title">Primanti Bros (Oakland)</div>
         <div class="ev-notes">Forbes Ave, Oakland · ~5 min drive (or hotel shuttle) · Fast, casual — good if there's only a short window between games.
           <a href="https://maps.google.com/?q=Primanti+Bros+Oakland+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
@@ -976,7 +942,6 @@
         <div class="schedule">
           <div class="row free" data-cat="activity">
             <span class="mode-tag car">CAR / UBER</span>
-            <span class="mode-tag parents">PARENTS</span>
             <span class="mode-tag group">GOOD FOR GROUPS</span>
             <div class="ev-title">Phipps Conservatory &amp; Botanical Gardens</div>
             <div class="ev-notes">1 Schenley Dr, Pittsburgh PA 15213 · One of Pittsburgh's most highly rated attractions — beautiful glasshouse gardens and rotating exhibits. A great change of pace for both teens and parents.
@@ -984,7 +949,6 @@
           </div>
           <div class="row free" data-cat="activity">
             <span class="mode-tag car">CAR / UBER</span>
-            <span class="mode-tag teen">TEEN-FRIENDLY</span>
             <span class="mode-tag group">GOOD FOR GROUPS</span>
             <div class="ev-title">Kennywood Amusement Park</div>
             <div class="ev-notes">4800 Kennywood Blvd, West Mifflin PA 15122 · ~20 min from Oakland · Historic Pittsburgh amusement park, classic wooden coasters — needs a half-day minimum, only realistic if playoffs wrap up early. Online dated tickets typically start around $40/person (cheaper than buying at the gate).
@@ -999,7 +963,6 @@
         <div class="row-top"><span class="ev-time">Departure</span></div>
         <div class="ev-title">🚗 Depart for Camp Hill</div>
         <div class="travel-meta"><span>⏱ ~2hr 15min</span><span>📍 ~195 mi (est.)</span></div>
-        <div class="travel-note">TODO: pick a turnpike rest-stop dinner option (Sheetz/Bob Evans, etc.) if leaving around dinnertime.</div>
       </div>
 
     </div>
@@ -1016,8 +979,7 @@
       <span class="todo">Drive times &amp; mileage above are estimates — confirm with GPS day-of.</span>
       <div class="mini-legend">
         <span>WALKABLE</span><span>CAR/UBER</span><span>5-MIN DRIVE / SHUTTLE</span><span>VIA THE T</span>
-        <span>TEEN-FRIENDLY</span><span>GOOD FOR GROUPS</span>
-        <span>PARENTS</span><span>RAIN BACKUP</span><span>LOW EFFORT</span><span>RESERVATION SMART</span>
+        <span>GOOD FOR GROUPS</span><span>RAIN BACKUP</span><span>RESERVATION SMART</span>
       </div>
     </div>
   </section>
