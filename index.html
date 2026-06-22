@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cedar Cliff Colts — Pittsburgh 2026</title>
+<style>
+  :root {
+    --navy: #0c1f4d;
+    --navy-dark: #081636;
+    --baby-blue: #8fc6ee;
+    --baby-blue-soft: #eaf5fd;
+    --gold: #d4a017;
+    --grey: #e7e8ea;
+    --grey-dark: #8a8f98;
+    --white: #ffffff;
+    --radius: 10px;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--grey);
+    color: var(--navy);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  header.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--navy);
+    color: var(--white);
+    padding: 14px 16px 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+
+  .header-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo-c {
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+  }
+
+  .header-text h1 {
+    font-size: 1.05rem;
+    margin: 0;
+    color: var(--white);
+    letter-spacing: 0.3px;
+    line-height: 1.25;
+  }
+
+  .header-text .subtitle {
+    font-size: 0.72rem;
+    color: var(--baby-blue);
+    font-weight: 600;
+  }
+
+  .hotel-info {
+    font-size: 0.72rem;
+    color: #cfd8e8;
+    margin-top: 8px;
+    line-height: 1.4;
+  }
+
+  .hotel-info a { color: var(--baby-blue); text-decoration: none; }
+
+  nav.tabs {
+    display: flex;
+    background: var(--navy-dark);
+    position: sticky;
+    top: 0;
+    z-index: 99;
+  }
+
+  nav.tabs button {
+    flex: 1;
+    background: none;
+    border: none;
+    color: #9aa7c2;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 12px 4px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  nav.tabs button.active {
+    color: var(--baby-blue);
+    border-bottom-color: var(--gold);
+  }
+
+  main {
+    padding: 14px 12px 24px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .day { display: none; }
+  .day.active { display: block; animation: fadeIn 0.2s ease; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .leave-by {
+    background: var(--gold);
+    color: var(--navy-dark);
+    border-radius: var(--radius);
+    padding: 12px 14px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .day-heading {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0 0 10px;
+    color: var(--navy);
+  }
+
+  .schedule { display: flex; flex-direction: column; gap: 8px; }
+
+  .row {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 10px 12px;
+    border-left: 5px solid var(--grey-dark);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+
+  .row.game { border-left-color: var(--gold); background: #fdf6e6; }
+  .row.pirates { border-left-color: var(--gold); background: var(--navy); color: var(--white); }
+  .row.pirates .ev-notes { color: #d7deea; }
+  .row.pirates .ev-who { color: var(--gold); }
+  .row.pirates .ev-notes a { color: var(--baby-blue); }
+  .row.free { border-left-color: var(--baby-blue); background: var(--baby-blue-soft); }
+  .row.travel { border-left-color: var(--grey-dark); background: #f1f1f2; }
+
+  .row-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .ev-time { font-weight: 700; font-size: 0.78rem; white-space: nowrap; }
+  .ev-who { font-size: 0.72rem; font-weight: 600; color: var(--grey-dark); text-align: right; }
+  .ev-title { font-weight: 700; font-size: 0.95rem; margin: 3px 0 2px; }
+  .ev-notes { font-size: 0.82rem; color: #444; line-height: 1.45; }
+  .ev-notes a { color: #1a5fb4; text-decoration: underline; word-break: break-word; }
+  .row.pirates .ev-title { color: var(--white); }
+
+  .lets-eat {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--gold);
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-top: 6px;
+    letter-spacing: 0.3px;
+  }
+  .row.pirates .lets-eat { background: var(--gold); color: var(--navy-dark); }
+
+  .mode-tag {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-top: 6px;
+    margin-right: 4px;
+  }
+  .mode-tag.walk { background: #d7f0db; color: #1f6b32; }
+  .mode-tag.car { background: #fbe2cf; color: #9a4d10; }
+
+  .free-block-title {
+    font-weight: 700;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: #2a4a86;
+    margin: 14px 0 6px;
+  }
+
+  .key-info {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 12px 14px;
+    margin-top: 18px;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    border: 1px solid #d8dbe0;
+  }
+
+  .key-info h3 { margin: 0 0 6px; font-size: 0.85rem; color: var(--navy); }
+  .key-info a { color: #1a5fb4; text-decoration: underline; word-break: break-word; }
+
+  footer.site-footer {
+    background: var(--navy);
+    color: #cfd8e8;
+    padding: 18px 16px 26px;
+    font-size: 0.78rem;
+    line-height: 1.7;
+    text-align: center;
+  }
+
+  footer.site-footer .gold { color: var(--gold); font-weight: 700; }
+  footer.site-footer a { color: var(--baby-blue); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-row">
+    <svg class="logo-c" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="48" fill="#0c1f4d" stroke="#8fc6ee" stroke-width="3"/>
+      <path d="M68 30 A28 28 0 1 0 68 70" fill="none" stroke="#8fc6ee" stroke-width="16" stroke-linecap="round"/>
+    </svg>
+    <div class="header-text">
+      <h1>Cedar Cliff Colts</h1>
+      <div class="subtitle">Pittsburgh Cap Classic · Jun 25–28, 2026</div>
+    </div>
+  </div>
+  <div class="hotel-info">
+    Hotel Indigo Pittsburgh University-Oakland · 329 Technology Dr · <a href="tel:4126210880">412-621-0880</a>
+  </div>
+</header>
+
+<nav class="tabs">
+  <button class="tab-btn active" data-day="thu">Thu</button>
+  <button class="tab-btn" data-day="fri">Fri</button>
+  <button class="tab-btn" data-day="sat">Sat</button>
+  <button class="tab-btn" data-day="sun">Sun</button>
+</nav>
+
+<main>
+
+  <!-- THURSDAY -->
+  <section id="thu" class="day active">
+    <div class="leave-by">⏰ Leave by 9:15 AM from Camp Hill — 2hr 15min drive to Eden Christian Academy</div>
+    <h2 class="day-heading">Thursday, June 25</h2>
+    <div class="schedule">
+      <div class="row game">
+        <div class="row-top"><span class="ev-time">12:30 PM</span><span class="ev-who">Game #5</span></div>
+        <div class="ev-title">⚾ Colts vs Bradford Tigers</div>
+        <div class="ev-notes">Eden Christian Academy BB · 206 Siebert Rd, Pittsburgh PA 15237<br>
+          <a href="https://go.playacevents.com/events/16th-annual-cap-classic-pittsburgh-2-pittsburgh-pa-06-25-2026/15u" target="_blank" rel="noopener">Tournament link</a> ·
+          <a href="https://maps.google.com/?q=Eden+Christian+Academy+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
+        <span class="lets-eat">Let's Eat! 🍽️</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FRIDAY -->
+  <section id="fri" class="day">
+    <div class="leave-by">⏰ Leave by 1:45 PM from hotel — ~20 min drive to Woodland Hills</div>
+    <h2 class="day-heading">Friday, June 26</h2>
+    <div class="schedule">
+
+      <div class="free-block-title">Free Time — 9:30 AM until 1:45 PM departure</div>
+
+      <div class="row free">
+        <span class="mode-tag walk">WALKABLE</span>
+        <div class="ev-title">Cathedral of Learning Observation Deck</div>
+        <div class="ev-notes">4200 Fifth Ave, Pittsburgh PA 15260 · 10-min walk · Free, climb to the 36th-floor lookout in Pitt's iconic Gothic tower — good views and a cool building to explore.
+          <a href="https://maps.google.com/?q=Cathedral+of+Learning+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
+      </div>
+
+      <div class="row free">
+        <span class="mode-tag walk">WALKABLE</span>
+        <div class="ev-title">Schenley Park</div>
+        <div class="ev-notes">Adjacent to hotel · Open fields, trails, disc golf course — toss a ball around, stretch the legs before the game.
+          <a href="https://maps.google.com/?q=Schenley+Park+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
+      </div>
+
+      <div class="row free">
+        <span class="mode-tag car">CAR / UBER</span>
+        <div class="ev-title">South Side Works</div>
+        <div class="ev-notes">100 S Side Works, Pittsburgh PA 15203 · ~15 min · Shops, arcade, food court — more to do if the team wants to roam a bit further.
+          <a href="https://maps.google.com/?q=South+Side+Works+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
+      </div>
+
+      <div class="row game">
+        <div class="row-top"><span class="ev-time">2:45 PM</span><span class="ev-who">Game #15</span></div>
+        <div class="ev-title">⚾ Colts vs Ohio Valley Rookies Greleski</div>
+        <div class="ev-notes">Woodland Hills BB · 2550 Greensburg Pike, Pittsburgh PA 15221<br>
+          <a href="https://go.playacevents.com/events/16th-annual-cap-classic-pittsburgh-2-pittsburgh-pa-06-25-2026/15u" target="_blank" rel="noopener">Tournament link</a> ·
+          <a href="https://maps.google.com/?q=Woodland+Hills+High+School+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
+        <span class="lets-eat">Let's Eat! 🍽️</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SATURDAY -->
+  <section id="sat" class="day">
+    <div class="leave-by">⏰ Leave by 7:00 AM from hotel — early 8 AM game at Plum (~35 min drive)</div>
+    <h2 class="day-heading">Saturday, June 27</h2>
+    <div class="schedule">
+
+      <div class="row game">
+        <div class="row-top"><span class="ev-time">8:00 AM</span><span class="ev-who">Game #26</span></div>
+        <div class="ev-title">⚾ Colts vs Cincinnati Riverbats</div>
+        <div class="ev-notes">Plum HS Baseball Field · 900 Elicker Rd, Plum PA 15239<br>
+          <a href="https://go.playacevents.com/events/16th-annual-cap-classic-pittsburgh-2-pittsburgh-pa-06-25-2026/15u" target="_blank" rel="noopener">Tournament link</a> ·
+          <a href="https://maps.google.com/?q=Plum+High+School+Baseball+Field" target="_blank" rel="noopener">Map</a></div>
+        <span class="lets-eat">Let's Eat! 🍽️</span>
+      </div>
+
+      <div class="free-block-title">Free Time — ~10:30 AM until 3:05 PM departure for PNC Park</div>
+
+      <div class="row free">
+        <span class="mode-tag car">CAR / UBER</span>
+        <div class="ev-title">The Andy Warhol Museum</div>
+        <div class="ev-notes">117 Sandusky St, Pittsburgh PA 15212 · ~15 min · Modern art museum, very photogenic, holds attention well.
+          <a href="https://maps.google.com/?q=Andy+Warhol+Museum+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
+      </div>
+
+      <div class="row free">
+        <span class="mode-tag car">CAR / UBER</span>
+        <div class="ev-title">Station Square</div>
+        <div class="ev-notes">125 W Station Square Dr, Pittsburgh PA 15219 · ~15 min · Shops, restaurants, skyline views, Gateway Clipper riverboat docks — good spot to kill a few hours.
+          <a href="https://maps.google.com/?q=Station+Square+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
+      </div>
+
+      <div class="row free">
+        <span class="mode-tag walk">WALKABLE</span>
+        <div class="ev-title">Schenley Park / hotel area</div>
+        <div class="ev-notes">Adjacent to hotel · Rest, recharge, no driving needed before the Pirates game.
+          <a href="https://maps.google.com/?q=Schenley+Park+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
+      </div>
+
+      <div class="row travel">
+        <div class="row-top"><span class="ev-time">3:05 PM</span><span class="ev-who">Uber</span></div>
+        <div class="ev-title">Depart for PNC Park</div>
+        <div class="ev-notes">~20 min · Uber strongly recommended — skip the parking headache.</div>
+      </div>
+
+      <div class="row pirates">
+        <div class="row-top"><span class="ev-time">4:05 PM</span><span class="ev-who">Most of the team</span></div>
+        <div class="ev-title">⚾ PIRATES vs REDS — PNC Park</div>
+        <div class="ev-notes">Soccer Night promotion · 115 Federal St, Pittsburgh PA 15212<br>
+          <a href="https://www.ticketmaster.com/pittsburgh-pirates-tickets/artist/806006" target="_blank" rel="noopener">Tickets</a> ·
+          <a href="https://maps.google.com/?q=PNC+Park+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
+        <span class="lets-eat">Let's Eat! 🍽️</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SUNDAY -->
+  <section id="sun" class="day">
+    <div class="leave-by">⏰ Schedule TBD — depends on playoffs. Depart for Camp Hill (~2hr 15min) when done.</div>
+    <h2 class="day-heading">Sunday, June 28 — TBD (Playoffs)</h2>
+    <div class="schedule">
+
+      <div class="row game">
+        <div class="row-top"><span class="ev-time">TBD</span><span class="ev-who">Playoffs</span></div>
+        <div class="ev-title">⚾ Tournament playoff game(s) if advancing</div>
+        <div class="ev-notes"><a href="https://go.playacevents.com/events/16th-annual-cap-classic-pittsburgh-2-pittsburgh-pa-06-25-2026/15u" target="_blank" rel="noopener">Tournament link</a></div>
+        <span class="lets-eat">Let's Eat! 🍽️</span>
+      </div>
+
+      <div class="free-block-title">If eliminated early</div>
+
+      <div class="row free">
+        <span class="mode-tag car">CAR / UBER</span>
+        <div class="ev-title">Kennywood Amusement Park</div>
+        <div class="ev-notes">4800 Kennywood Blvd, West Mifflin PA 15122 · ~25 min · Classic Pittsburgh amusement park — coasters, rides, a full day out.
+          <a href="https://maps.google.com/?q=Kennywood+Park" target="_blank" rel="noopener">Map</a></div>
+      </div>
+
+      <div class="row free">
+        <span class="mode-tag car">CAR / UBER</span>
+        <div class="ev-title">Station Square / North Shore</div>
+        <div class="ev-notes">Museum of Illusions: 267 North Shore Dr, Pittsburgh PA 15212 · ~15 min · Walkable waterfront once there, shops, casual lunch.
+          <a href="https://maps.google.com/?q=Museum+of+Illusions+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
+      </div>
+
+      <div class="row pirates">
+        <span class="mode-tag car" style="background:#1a3a78;color:#cfe6ff;">CAR / UBER</span>
+        <div class="ev-title">⚾ Pirates vs Reds again — 1:35 PM first pitch</div>
+        <div class="ev-notes">Eat'n Park Smiley Cookie giveaway · Full team this time.
+          <a href="https://maps.google.com/?q=PNC+Park+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
+        <span class="lets-eat">Let's Eat! 🍽️</span>
+      </div>
+
+      <div class="row travel">
+        <div class="row-top"><span class="ev-time">Departure</span></div>
+        <div class="ev-title">Depart for Camp Hill</div>
+        <div class="ev-notes">~2hr 15min drive home</div>
+      </div>
+
+    </div>
+
+    <div class="key-info">
+      <h3>Key Info</h3>
+      Hotel: Hotel Indigo Pittsburgh · 329 Technology Dr · <a href="tel:4126210880">412-621-0880</a><br>
+      Tournament hub: <a href="https://go.playacevents.com/events/16th-annual-cap-classic-pittsburgh-2-pittsburgh-pa-06-25-2026/15u" target="_blank" rel="noopener">Cap Classic Pittsburgh 2026</a><br>
+      Parking tip: Use hotel garage. Uber to PNC Park Saturday — no parking headache.
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="gold">Cedar Cliff Colts · Pittsburgh 2026 · Let's Eat! 🍽️</div>
+  Hotel Indigo Pittsburgh University-Oakland · 329 Technology Dr · <a href="tel:4126210880">412-621-0880</a><br>
+  <a href="https://go.playacevents.com/events/16th-annual-cap-classic-pittsburgh-2-pittsburgh-pa-06-25-2026/15u" target="_blank" rel="noopener">Tournament Hub</a> ·
+  <a href="https://maps.google.com/?q=Hotel+Indigo+Pittsburgh+University+Oakland" target="_blank" rel="noopener">Hotel Map</a> ·
+  <a href="https://www.ticketmaster.com/pittsburgh-pirates-tickets/artist/806006" target="_blank" rel="noopener">Pirates Tickets</a>
+</footer>
+
+<script>
+  const tabs = document.querySelectorAll('.tab-btn');
+  const days = document.querySelectorAll('.day');
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabs.forEach(b => b.classList.remove('active'));
+      days.forEach(d => d.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.day).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>
