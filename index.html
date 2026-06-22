@@ -151,6 +151,23 @@
   .row.free { border-left-color: var(--baby-blue); background: var(--baby-blue-soft); }
   .row.travel { border-left-color: var(--grey-dark); background: #f1f1f2; }
 
+  .travel-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 4px;
+    font-size: 0.78rem;
+    color: #444;
+    font-weight: 600;
+  }
+  .travel-meta span { white-space: nowrap; }
+  .travel-note {
+    font-size: 0.76rem;
+    color: #6a6f78;
+    margin-top: 3px;
+    font-style: italic;
+  }
+
   .row-top {
     display: flex;
     justify-content: space-between;
@@ -270,71 +287,19 @@
   .row.pirates details.eat-details .eat-body { background: rgba(255,255,255,0.1); color: #e6ebf5; }
   .row.pirates details.eat-details .eat-body a { color: var(--baby-blue); }
   .eat-body a { color: #1a5fb4; text-decoration: underline; }
-  .eat-body .todo { color: #9a4d10; font-style: italic; }
+  .todo { color: #9a4d10; font-style: italic; }
   .row.pirates details.eat-details .eat-body .todo { color: #f0c878; }
 
-  .team-picks {
-    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-dark) 100%);
-    margin: -14px -12px 16px;
-    padding: 16px 12px 18px;
-    color: var(--white);
-  }
-
-  .team-picks h2 {
-    font-size: 0.95rem;
-    margin: 0 0 4px;
-    color: var(--gold);
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-  }
-
-  .team-picks .tp-sub {
-    font-size: 0.75rem;
-    color: #b9c6e2;
-    margin-bottom: 10px;
-  }
-
-  .tp-scroll {
-    display: flex;
-    gap: 10px;
-    overflow-x: auto;
-    padding-bottom: 4px;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .tp-card {
-    flex: 0 0 auto;
-    width: 200px;
-    background: var(--white);
-    color: var(--navy);
-    border-radius: var(--radius);
-    padding: 10px 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
-  }
-
-  .tp-card .tp-label {
-    font-size: 0.66rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    color: var(--gold-dark, #9a7a0a);
-    letter-spacing: 0.3px;
-    margin-bottom: 4px;
-  }
-
-  .tp-card .tp-title { font-weight: 700; font-size: 0.88rem; margin-bottom: 4px; }
-  .tp-card .tp-notes { font-size: 0.76rem; color: #444; line-height: 1.4; }
-  .tp-card .tp-notes a { color: #1a5fb4; text-decoration: underline; }
-
-  .tag-legend {
+  .mini-legend {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 12px;
+    gap: 5px;
+    margin-top: 8px;
     font-size: 0.66rem;
   }
-  .tag-legend span {
-    background: rgba(255,255,255,0.12);
-    color: #d7deea;
+  .mini-legend span {
+    background: var(--grey);
+    color: #5a6478;
     padding: 2px 7px;
     border-radius: 20px;
   }
@@ -392,50 +357,9 @@
 
 <main>
 
-  <section class="team-picks">
-    <h2>⭐ Team Picks</h2>
-    <div class="tp-sub">Best options by situation — jump to the day tab for full details &amp; map links.</div>
-    <div class="tp-scroll">
-      <div class="tp-card">
-        <div class="tp-label">Best Walkable</div>
-        <div class="tp-title">Cathedral of Learning Observation Deck</div>
-        <div class="tp-notes">Free, ~10 min walk, 36th-floor lookout. Easy win for any open morning.
-          <a href="https://maps.google.com/?q=Cathedral+of+Learning+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
-      </div>
-      <div class="tp-card">
-        <div class="tp-label">Best Team Meal</div>
-        <div class="tp-title">Primanti Bros (Oakland)</div>
-        <div class="tp-notes">Pittsburgh classic, casual, no reservation, handles big groups fast.
-          <a href="https://maps.google.com/?q=Primanti+Bros+Oakland+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
-      </div>
-      <div class="tp-card">
-        <div class="tp-label">Best Parent-Friendly</div>
-        <div class="tp-title">Hofbräuhaus Pittsburgh</div>
-        <div class="tp-notes">Station Square beer hall, big group tables, outdoor biergarten, TVs, real food menu.
-          <a href="https://maps.google.com/?q=Hofbrauhaus+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
-      </div>
-      <div class="tp-card">
-        <div class="tp-label">Best Rain Backup</div>
-        <div class="tp-title">Carnegie Museum of Natural History</div>
-        <div class="tp-notes">Walkable from hotel, dinosaurs &amp; teen-friendly exhibits, all-indoor.
-          <a href="https://maps.google.com/?q=Carnegie+Museum+of+Natural+History+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
-      </div>
-      <div class="tp-card">
-        <div class="tp-label">Best Sunday If Eliminated</div>
-        <div class="tp-title">Kennywood Amusement Park</div>
-        <div class="tp-notes">~25 min, classic coasters &amp; rides — a full day to burn if the run ends early.
-          <a href="https://maps.google.com/?q=Kennywood+Park" target="_blank" rel="noopener">Map</a></div>
-      </div>
-    </div>
-    <div class="tag-legend">
-      <span>WALKABLE</span><span>CAR/UBER</span><span>TEEN-FRIENDLY</span><span>GOOD FOR GROUPS</span>
-      <span>PARENTS</span><span>RAIN BACKUP</span><span>LOW EFFORT</span><span>RESERVATION SMART</span>
-    </div>
-  </section>
-
   <!-- THURSDAY -->
   <section id="thu" class="day active">
-    <div class="leave-by">⏰ Leave by 9:15 AM from Camp Hill — 2hr 15min drive to Eden Christian Academy</div>
+    <div class="leave-by">⏰ Leave by 9:15 AM from Camp Hill — 2hr 15min / ~195 mi (est.) drive to Eden Christian Academy</div>
     <h2 class="day-heading">Thursday, June 25</h2>
     <div class="schedule">
       <div class="row game">
@@ -451,6 +375,13 @@
             <span class="todo">TODO: confirm a specific quick-bite spot near Eden Christian Academy / Siebert Rd.</span>
           </div>
         </details>
+      </div>
+
+      <div class="row travel">
+        <div class="row-top"><span class="ev-time">After the game</span><span class="ev-who">Drive to hotel</span></div>
+        <div class="ev-title">🚗 Eden Christian Academy → Hotel Indigo Oakland</div>
+        <div class="travel-meta"><span>⏱ ~20 min</span><span>📍 ~12 mi (est.)</span><span>🅿️ Hotel garage</span></div>
+        <div class="travel-note">First check-in of the trip — get bags up before heading back out for the evening.</div>
       </div>
 
       <div class="free-block-title">Free Time — after the game, evening near the hotel (until ~9 PM)</div>
@@ -510,7 +441,7 @@
 
   <!-- FRIDAY -->
   <section id="fri" class="day">
-    <div class="leave-by">⏰ Leave by 1:45 PM from hotel — ~20 min drive to Woodland Hills</div>
+    <div class="leave-by">⏰ Leave by 1:45 PM from hotel — ~20 min / ~10 mi (est.) drive to Woodland Hills</div>
     <h2 class="day-heading">Friday, June 26</h2>
     <div class="schedule">
 
@@ -587,6 +518,12 @@
         </details>
       </div>
 
+      <div class="row travel">
+        <div class="row-top"><span class="ev-time">After the game</span><span class="ev-who">Drive to hotel</span></div>
+        <div class="ev-title">🚗 Woodland Hills → Hotel Indigo Oakland</div>
+        <div class="travel-meta"><span>⏱ ~20 min</span><span>📍 ~10 mi (est.)</span><span>🅿️ Hotel garage</span></div>
+      </div>
+
       <div class="free-block-title">Free Time — Friday evening, after the game (until ~9 PM)</div>
       <div class="free-block-sub">Back from the game with the whole evening open.</div>
 
@@ -636,7 +573,7 @@
 
   <!-- SATURDAY -->
   <section id="sat" class="day">
-    <div class="leave-by">⏰ Leave by 7:00 AM from hotel — early 8 AM game at Plum (~35 min drive)</div>
+    <div class="leave-by">⏰ Leave by 7:00 AM from hotel — early 8 AM game at Plum (~35 min / ~22 mi est. drive)</div>
     <h2 class="day-heading">Saturday, June 27</h2>
     <div class="schedule">
 
@@ -706,8 +643,9 @@
 
       <div class="row travel">
         <div class="row-top"><span class="ev-time">3:05 PM</span><span class="ev-who">Uber</span></div>
-        <div class="ev-title">Depart for PNC Park</div>
-        <div class="ev-notes">~20 min · Uber strongly recommended — skip the parking headache.</div>
+        <div class="ev-title">🚗 Hotel/Oakland → PNC Park</div>
+        <div class="travel-meta"><span>⏱ ~20 min</span><span>📍 ~6 mi (est.)</span><span>🅿️ Skip it — Uber drop-off at North Shore</span></div>
+        <div class="travel-note">Uber strongly recommended — game-day parking near PNC Park fills fast and costs more than the ride.</div>
       </div>
 
       <div class="row pirates">
@@ -732,12 +670,19 @@
           <a href="https://maps.google.com/?q=North+Shore+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
       </div>
 
+      <div class="row travel">
+        <div class="row-top"><span class="ev-time">Postgame</span><span class="ev-who">Uber</span></div>
+        <div class="ev-title">🚗 PNC Park → Hotel Indigo Oakland</div>
+        <div class="travel-meta"><span>⏱ ~20 min</span><span>📍 ~6 mi (est.)</span><span>🅿️ Uber pickup, North Shore Dr</span></div>
+        <div class="travel-note">Postgame traffic/rideshare surge is real — give it extra time if the whole team is leaving at once.</div>
+      </div>
+
     </div>
   </section>
 
   <!-- SUNDAY -->
   <section id="sun" class="day">
-    <div class="leave-by">⏰ Schedule TBD — depends on playoffs. Depart for Camp Hill (~2hr 15min) when done.</div>
+    <div class="leave-by">⏰ Schedule TBD — depends on playoffs. Depart for Camp Hill (~2hr 15min / ~195 mi est.) when done.</div>
     <h2 class="day-heading">Sunday, June 28 — TBD (Playoffs)</h2>
     <div class="schedule">
 
@@ -775,6 +720,13 @@
           <a href="https://maps.google.com/?q=Museum+of+Illusions+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
       </div>
 
+      <div class="row travel">
+        <div class="row-top"><span class="ev-time">Before 1:35 PM</span><span class="ev-who">Uber</span></div>
+        <div class="ev-title">🚗 Back to PNC Park</div>
+        <div class="travel-meta"><span>⏱ ~20 min</span><span>📍 ~6 mi (est.)</span><span>🅿️ Skip it — Uber drop-off at North Shore</span></div>
+        <div class="travel-note">From Kennywood it's more like ~30 min — leave a buffer for Sunday traffic.</div>
+      </div>
+
       <div class="row pirates">
         <span class="mode-tag car" style="background:#1a3a78;color:#cfe6ff;">CAR / UBER</span>
         <div class="ev-title">⚾ Pirates vs Reds again — 1:35 PM first pitch</div>
@@ -790,9 +742,9 @@
 
       <div class="row travel">
         <div class="row-top"><span class="ev-time">Departure</span></div>
-        <div class="ev-title">Depart for Camp Hill</div>
-        <div class="ev-notes">~2hr 15min drive home
-          <span class="todo"> TODO: pick a turnpike rest-stop dinner option (Sheetz/Bob Evans, etc.) if leaving around dinnertime.</span></div>
+        <div class="ev-title">🚗 Depart for Camp Hill</div>
+        <div class="travel-meta"><span>⏱ ~2hr 15min</span><span>📍 ~195 mi (est.)</span></div>
+        <div class="travel-note">TODO: pick a turnpike rest-stop dinner option (Sheetz/Bob Evans, etc.) if leaving around dinnertime.</div>
       </div>
 
     </div>
@@ -801,7 +753,12 @@
       <h3>Key Info</h3>
       Hotel: Hotel Indigo Pittsburgh · 329 Technology Dr · <a href="tel:4126210880">412-621-0880</a><br>
       Tournament hub: <a href="https://go.playacevents.com/events/16th-annual-cap-classic-pittsburgh-2-pittsburgh-pa-06-25-2026/15u" target="_blank" rel="noopener">Cap Classic Pittsburgh 2026</a><br>
-      Parking tip: Use hotel garage. Uber to PNC Park Saturday — no parking headache.
+      Parking tip: Use hotel garage. Uber to/from PNC Park — no parking headache.<br>
+      <span class="todo">Drive times &amp; mileage above are estimates — confirm with GPS day-of.</span>
+      <div class="mini-legend">
+        <span>WALKABLE</span><span>CAR/UBER</span><span>TEEN-FRIENDLY</span><span>GOOD FOR GROUPS</span>
+        <span>PARENTS</span><span>RAIN BACKUP</span><span>LOW EFFORT</span><span>RESERVATION SMART</span>
+      </div>
     </div>
   </section>
 
