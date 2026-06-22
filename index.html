@@ -347,7 +347,7 @@
   /* Quick actions */
   .quick-actions {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 6px;
     background: var(--navy-dark);
     padding: 8px 8px 10px;
@@ -419,33 +419,6 @@
   .up-next.late { background: linear-gradient(135deg, #d44, #a31c1c); color: var(--white); }
   .up-next.late .up-next-actions a, .up-next.late .up-next-actions button { background: var(--navy-dark); }
 
-  /* Filter bar */
-  .filter-bar {
-    display: flex;
-    gap: 6px;
-    overflow-x: auto;
-    padding: 10px 0 4px;
-    -webkit-overflow-scrolling: touch;
-  }
-  .filter-bar::-webkit-scrollbar { display: none; }
-  .filter-chip {
-    flex-shrink: 0;
-    background: var(--white);
-    border: 1.5px solid #d8dbe0;
-    color: var(--navy);
-    font-size: 0.74rem;
-    font-weight: 700;
-    padding: 6px 12px;
-    border-radius: 20px;
-    cursor: pointer;
-  }
-  .filter-chip.active {
-    background: var(--navy);
-    border-color: var(--navy);
-    color: var(--gold);
-  }
-
-  .row.free.filtered-out { display: none; }
 
   /* Weather card */
   .weather-card {
@@ -532,9 +505,8 @@
 </header>
 
 <div class="quick-actions">
-  <a id="qa-map" href="https://maps.google.com/?q=Hotel+Indigo+Pittsburgh+University+Oakland" target="_blank" rel="noopener"><span class="qa-icon">🗺️</span>Map</a>
-  <a href="tel:4126210880"><span class="qa-icon">📞</span>Hotel</a>
-  <a href="https://go.playacevents.com/events/16th-annual-cap-classic-pittsburgh-2-pittsburgh-pa-06-25-2026/15u" target="_blank" rel="noopener"><span class="qa-icon">🏆</span>Tourney</a>
+  <a href="https://go.playacevents.com/events/16th-annual-cap-classic-pittsburgh-2-pittsburgh-pa-06-25-2026/15u" target="_blank" rel="noopener"><span class="qa-icon">📅</span>Schedule</a>
+  <a href="https://go.playacevents.com/events/16th-annual-cap-classic-pittsburgh-2-pittsburgh-pa-06-25-2026/15u" target="_blank" rel="noopener"><span class="qa-icon">🏆</span>Standings</a>
   <a href="https://go.playacevents.com/pitch-count/16th-annual-cap-classic-pittsburgh-2-pittsburgh-pa-06-25-2026/15u" target="_blank" rel="noopener"><span class="qa-icon">🔢</span>Pitches</a>
   <a id="qa-weather" href="#weather" data-day="weather"><span class="qa-icon">☀️</span>Weather</a>
 </div>
@@ -551,21 +523,9 @@
   <button class="tab-btn" data-day="fri">Fri</button>
   <button class="tab-btn" data-day="sat">Sat</button>
   <button class="tab-btn" data-day="sun">Sun</button>
-  <button class="tab-btn" data-day="weather">Weather</button>
-  <button class="tab-btn" data-day="best">Best of PGH</button>
 </nav>
 
 <main>
-
-  <div class="filter-bar" id="filter-bar">
-    <button class="filter-chip active" data-filter="all">All</button>
-    <button class="filter-chip" data-filter="food">Food</button>
-    <button class="filter-chip" data-filter="activity">Activities</button>
-    <button class="filter-chip" data-filter="rain">Rain Backup</button>
-    <button class="filter-chip" data-filter="parents">Parents</button>
-    <button class="filter-chip" data-filter="teen">Teen-Friendly</button>
-    <button class="filter-chip" data-filter="low">Low Effort</button>
-  </div>
 
   <!-- THURSDAY -->
   <section id="thu" class="day active">
@@ -693,6 +653,14 @@
       <details class="more-options">
         <summary>More morning options</summary>
         <div class="schedule">
+          <div class="row free" data-cat="food">
+            <span class="mode-tag drive5">5-MIN DRIVE / SHUTTLE</span>
+            <span class="mode-tag low">LOW EFFORT</span>
+            <span class="mode-tag res">RESERVATION SMART</span>
+            <div class="ev-title">Pamela's Diner — breakfast pick</div>
+            <div class="ev-notes">3703 Forbes Ave, Oakland · Pittsburgh's famous crepe-style hotcakes, a local institution and budget-friendly. Cash only, open 8 AM–2 PM — good call for a morning before a museum or walk.
+              <a href="https://maps.google.com/?q=Pamela%27s+Diner+Oakland+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
+          </div>
           <div class="row free" data-cat="activity">
             <span class="mode-tag drive5">5-MIN DRIVE / SHUTTLE</span>
             <span class="mode-tag rain">RAIN BACKUP</span>
@@ -1003,6 +971,30 @@
           <a href="https://maps.google.com/?q=Primanti+Bros+Oakland+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
       </div>
 
+      <details class="more-options">
+        <summary>If there's more time than expected</summary>
+        <div class="schedule">
+          <div class="row free" data-cat="activity">
+            <span class="mode-tag car">CAR / UBER</span>
+            <span class="mode-tag parents">PARENTS</span>
+            <span class="mode-tag group">GOOD FOR GROUPS</span>
+            <div class="ev-title">Phipps Conservatory &amp; Botanical Gardens</div>
+            <div class="ev-notes">1 Schenley Dr, Pittsburgh PA 15213 · One of Pittsburgh's most highly rated attractions — beautiful glasshouse gardens and rotating exhibits. A great change of pace for both teens and parents.
+              <a href="https://maps.google.com/?q=Phipps+Conservatory+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
+          </div>
+          <div class="row free" data-cat="activity">
+            <span class="mode-tag car">CAR / UBER</span>
+            <span class="mode-tag teen">TEEN-FRIENDLY</span>
+            <span class="mode-tag group">GOOD FOR GROUPS</span>
+            <div class="ev-title">Kennywood Amusement Park</div>
+            <div class="ev-notes">4800 Kennywood Blvd, West Mifflin PA 15122 · ~20 min from Oakland · Historic Pittsburgh amusement park, classic wooden coasters — needs a half-day minimum, only realistic if playoffs wrap up early. Online dated tickets typically start around $40/person (cheaper than buying at the gate).
+              <strong>Guests 15 and under must be accompanied by a chaperone age 21+ for the entire visit.</strong>
+              <a href="https://www.kennywood.com/buy-tickets/" target="_blank" rel="noopener">Tickets</a> ·
+              <a href="https://maps.google.com/?q=Kennywood+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
+          </div>
+        </div>
+      </details>
+
       <div class="row travel">
         <div class="row-top"><span class="ev-time">Departure</span></div>
         <div class="ev-title">🚗 Depart for Camp Hill</div>
@@ -1052,76 +1044,6 @@
     </div>
   </section>
 
-  <!-- BEST OF PITTSBURGH -->
-  <section id="best" class="day">
-    <h2 class="day-heading">Best of Pittsburgh for Baseball Families</h2>
-    <div class="free-block-sub">Affordable, parent-approved picks for a team with teenagers — beyond the ballpark. Worth carving out time for if the schedule allows.</div>
-    <div class="schedule">
-
-      <div class="row free best" data-cat="activity">
-        <span class="best-badge">★ TOP PICK</span>
-        <span class="mode-tag walk">WALKABLE</span>
-        <span class="mode-tag teen">TEEN-FRIENDLY</span>
-        <span class="mode-tag low">LOW EFFORT</span>
-        <div class="ev-title">A. Duquesne Incline + Mt. Washington</div>
-        <div class="ev-notes">Station Square · Pittsburgh's most iconic view — affordable, quick, and makes for the best family photo of the trip. See Saturday's free time for when this fits the schedule.
-          <a href="https://maps.google.com/?q=Duquesne+Incline+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
-      </div>
-
-      <div class="row free" data-cat="activity">
-        <span class="mode-tag car">CAR / UBER</span>
-        <span class="mode-tag teen">TEEN-FRIENDLY</span>
-        <span class="mode-tag group">GOOD FOR GROUPS</span>
-        <div class="ev-title">B. Carnegie Science Center &amp; SportsWorks</div>
-        <div class="ev-notes">1 Allegheny Ave, Pittsburgh PA 15212 · Convenient to the North Shore — interactive science exhibits plus SportsWorks (speed pitch, vertical leap, batting challenges). Especially recommended for athletes and teenagers.
-          <a href="https://maps.google.com/?q=Carnegie+Science+Center+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
-      </div>
-
-      <div class="row free" data-cat="activity">
-        <span class="mode-tag car">CAR / UBER</span>
-        <span class="mode-tag parents">PARENTS</span>
-        <span class="mode-tag group">GOOD FOR GROUPS</span>
-        <div class="ev-title">C. Phipps Conservatory &amp; Botanical Gardens</div>
-        <div class="ev-notes">1 Schenley Dr, Pittsburgh PA 15213 · One of Pittsburgh's most highly rated attractions — beautiful glasshouse gardens and rotating exhibits. A great change of pace for both teens and parents.
-          <a href="https://maps.google.com/?q=Phipps+Conservatory+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
-      </div>
-
-      <div class="row free" data-cat="food">
-        <span class="mode-tag drive5">5-MIN DRIVE / SHUTTLE</span>
-        <span class="mode-tag low">LOW EFFORT</span>
-        <span class="mode-tag res">RESERVATION SMART</span>
-        <div class="ev-title">D. Pamela's Diner — breakfast pick</div>
-        <div class="ev-notes">3703 Forbes Ave, Oakland · Pittsburgh's famous crepe-style hotcakes, a local institution and budget-friendly. Cash only, open 8 AM–2 PM — good call for a morning before a museum or walk.
-          <a href="https://maps.google.com/?q=Pamela%27s+Diner+Oakland+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
-      </div>
-
-      <div class="row free" data-cat="food">
-        <span class="mode-tag walk">WALKABLE</span>
-        <span class="mode-tag group">GOOD FOR GROUPS</span>
-        <span class="mode-tag parents">PARENTS</span>
-        <div class="ev-title">E. North Shore Pregame Eats</div>
-        <div class="ev-notes">All an easy walk from PNC Park's gates — North Shore Tavern, Burgatory, Southern Tier, and Federal Galley food hall. Top recommendation for the pregame meal before Saturday's Pirates game (see Saturday's "Let's Eat!").
-          <a href="https://maps.google.com/?q=North+Shore+Pittsburgh+restaurants" target="_blank" rel="noopener">Map</a></div>
-      </div>
-
-      <details class="more-options">
-        <summary>If you've got a full extra day: Kennywood</summary>
-        <div class="schedule">
-          <div class="row free" data-cat="activity">
-            <span class="mode-tag car">CAR / UBER</span>
-            <span class="mode-tag teen">TEEN-FRIENDLY</span>
-            <span class="mode-tag group">GOOD FOR GROUPS</span>
-            <div class="ev-title">Kennywood Amusement Park</div>
-            <div class="ev-notes">4800 Kennywood Blvd, West Mifflin PA 15122 · ~20 min from Oakland · Historic Pittsburgh amusement park, classic wooden coasters — needs a half-day minimum, best if there's a true open day. Online dated tickets typically start around $40/person (cheaper than buying at the gate).
-              <strong>Guests 15 and under must be accompanied by a chaperone age 21+ for the entire visit.</strong>
-              <a href="https://www.kennywood.com/buy-tickets/" target="_blank" rel="noopener">Tickets</a> ·
-              <a href="https://maps.google.com/?q=Kennywood+Pittsburgh" target="_blank" rel="noopener">Map</a></div>
-          </div>
-        </div>
-      </details>
-
-    </div>
-  </section>
 
 </main>
 
@@ -1229,37 +1151,6 @@
 
   renderUpNext();
   setInterval(renderUpNext, 60000);
-
-  // ---------- Filter chips ----------
-  const filterBar = document.getElementById('filter-bar');
-  if (filterBar) {
-    filterBar.addEventListener('click', (e) => {
-      const btn = e.target.closest('.filter-chip');
-      if (!btn) return;
-      filterBar.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.dataset.filter;
-
-      document.querySelectorAll('.row.free').forEach(row => {
-        if (filter === 'all') {
-          row.classList.remove('filtered-out');
-          return;
-        }
-        const tagClasses = Array.from(row.querySelectorAll('.mode-tag')).map(t =>
-          Array.from(t.classList).find(c => c !== 'mode-tag')
-        );
-        const cat = row.dataset.cat;
-        const matches = (filter === 'food' || filter === 'activity')
-          ? cat === filter
-          : tagClasses.includes(filter);
-        row.classList.toggle('filtered-out', !matches);
-        if (matches) {
-          const details = row.closest('details.more-options');
-          if (details) details.open = true;
-        }
-      });
-    });
-  }
 
   // ---------- Add to calendar (.ics) ----------
   function toICSDate(iso) {
