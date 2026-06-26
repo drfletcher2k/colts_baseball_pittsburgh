@@ -1038,6 +1038,14 @@
     btn.addEventListener('click', () => activateDay(btn.dataset.day));
   });
 
+  // ---------- Default to today's tab ----------
+  const dayByDate = { '2026-06-25': 'thu', '2026-06-26': 'fri', '2026-06-27': 'sat', '2026-06-28': 'sun' };
+  const now = new Date();
+  const todayKey = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+  if (dayByDate[todayKey]) {
+    activateDay(dayByDate[todayKey]);
+  }
+
   document.getElementById('qa-weather').addEventListener('click', (e) => {
     e.preventDefault();
     activateDay('weather');
